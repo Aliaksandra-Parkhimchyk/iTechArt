@@ -116,9 +116,56 @@ a.logo {
 
 .item_slider {}
 
-.item_slider .arrows {margin-bottom: 30px;}
+.item_slider .arrows {
+	margin-bottom: 30px;
+}
 
-.item_slider .arrows img {}
+.item_slider .arrows .semicircle {
+	overflow: hidden;
+	display: inline-block;
+	position: relative;
+	height: 125px;
+}
+
+.item_slider .arrows .semicircle:before {    
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 150px;
+	border-radius: 100%;
+	background: #e84c3d;
+}
+
+.item_slider .arrows .semicircle-left {}
+
+.item_slider .arrows .semicircle-left:before {
+	left: 0;
+}
+
+.item_slider .arrows .semicircle-left i {
+	font-size: 30px;
+	position: absolute;
+	top: 50px;
+	left: 20px;
+}
+
+.item_slider .arrows .semicircle-right {}
+
+.item_slider .arrows .semicircle-right:before {
+	right: 0;
+}
+
+.item_slider .arrows .semicircle-right i {
+	font-size: 30px;
+	position: absolute;
+	top: 50px;
+	left: 20px;
+}
+
+.item_slider .arrows .c2 {
+	width:60px;
+}
 
 .item_slider .line {}
 
@@ -157,11 +204,11 @@ a.logo {
 
 .advantage_icon {}
 
-.advantage_icon i, 
-.orange_row .human_icon i,
+.advantage_icon .circle, 
+.orange_row .human_icon .circle,
 .item_description  figure img,
 .item_contacts address i {
-	float:left;
+	float: left;
 }
 
 .advantage_icon i,
@@ -404,7 +451,7 @@ article button {
 	position: relative;
 }
 
-.orange_row .item_email .input_email button:after,
+/*.orange_row .item_email .input_email button:after,
 .item_query .input_query button:after {
 	content: '';
 	display: block;
@@ -414,7 +461,7 @@ article button {
 	position: absolute;
 	top: 15px;
 	right: 10px;
-}
+}*/
 
 .item_contacts {}
 
@@ -492,10 +539,52 @@ small.copyright a.images {color: #767c7e;}
 
 .footer_icons {}
 
-.footer_icons i {
-	color: #ffffff;
-	font-size: 20px;
+.advantage_icon .circle,
+.orange_row .human_icon .circle,
+.footer_icons .circle {
+	background: #e84c3d;
+	border-radius: 50%;
+	display: inline-block;
 	margin-right: 10px;
+	position: relative;
 }
 
-.footer_icons img:last-child {margin-right: 0px;}
+.advantage_icon .circle {
+	background: #e84c3d;
+	width: 70px;
+	height: 70px;
+}
+
+.advantage_icon .circle i {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+}
+
+.orange_row .human_icon .circle {
+	background: #202628;
+	width: 70px;
+	height: 70px;
+}
+
+.orange_row .human_icon .circle i {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+}
+
+.footer_icons .circle {
+	background: #e84c3d;
+	width: 40px;
+	height: 40px;
+}
+
+.footer_icons .circle i {
+	color: #ffffff;
+	font-size: 20px;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+.footer_icons .circle:last-child {margin-right: 0px;}

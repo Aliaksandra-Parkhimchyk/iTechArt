@@ -21,7 +21,7 @@
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/main1.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fjalla+One|Lato:400,700,400italic,900|Oswal">
 
@@ -30,7 +30,7 @@
 </head>
 <body>
 	
-	<!--[if lt IE 10]>
+	<!--[if lt IE 9]>
 	<p class="browsehappy">Вы используете <strong>УСТАРЕВШИЙ Interner Explorer</strong> браузер. Пожалуйста, <a href="http://browsehappy.com/">обновите ваш Браузер</a> чтобы увидеть больше возможностей на сайтах!</p>
 	<![endif]-->
 
@@ -44,11 +44,10 @@
 					<div class="col-md-2">
 						<a href="#" class="logo">Site Name</a>
 					</div>
-					<div class="col-md-5 col-md-offset-5">
+					<div class="col-md-6 col-md-offset-4">
 						<nav class="header_nav">
 							<ul>
-								<li><a href="#">Home</a></li>
-								<li><a href="#">About</a></li>
+								<li><a href="#">Home</a></li> <li><a href="#">About</a></li>
 								<li><a href="#">Services</a></li>
 								<li><a href="#">Portfolio</a></li>
 								<li><a href="#">Contact</a></li>
@@ -58,15 +57,19 @@
 				</div>
 			</div>
 		</header>
-
+		
 		<section class="wr-slider">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-5">
 						<div class="item_slider">
 							<div class="arrows">
-								<img src="img/arrow1.png" alt="">
-								<img src="img/arrow2.png" alt="">
+								<div class="semicircle c2 semicircle-left">
+									<i class="icon-angle-left"></i>
+								</div>							
+								<div class="semicircle c2 semicircle-right">
+									<i class="icon-angle-right"></i>	
+								</div>
 							</div>
 							<div class="line">
 								<h1>Clivuam tinc</h1> 
@@ -84,7 +87,9 @@
 				<div class="row">
 					<div class="col-md-4">
 						<div class="advantage_icon">
-							<i class="icon-rocket"></i>
+							<div class="circle">
+								<i class="icon-rocket"></i>
+							</div>
 							<div class="item_body">
 								<h2>Aliquam tincidunt</h2>
 								<p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesq</p>
@@ -94,7 +99,9 @@
 					</div>
 					<div class="col-md-4">
 						<div class="advantage_icon">
-							<i class="icon-shield"></i>
+							<div class="circle">
+								<i class="icon-shield"></i>
+							</div>
 							<div class="item_body">
 								<h2>Cras ornare tristiqu</h2>
 								<p>Jonec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesq</p>
@@ -104,7 +111,9 @@
 					</div>
 					<div class="col-md-4">
 						<div class="advantage_icon">
-							<i class="icon-fire-extinguisher"></i>
+							<div class="circle">
+								<i class="icon-fire-extinguisher"></i>
+							</div>
 							<div class="item_body">
 								<h2>Vivamus vestibulum</h2>
 								<p>Conec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesq</p>
@@ -154,7 +163,9 @@
 				<div class="row orange_row">
 					<div class="col-md-6">
 						<div class="human_icon">
-							<i class="icon-user"></i>
+							<div class="circle">
+								<i class="icon-user"></i>
+							</div>
 							<div class="item_blockquote">
 								<h2>Donec nec justo eget</h2>
 								<blockquote>
@@ -169,7 +180,10 @@
 							<h2>Morbi vitae luctus</h2>
 							<div class="input_email">
 								<input type="text" placeholder="enter your email id here ...">
-								<button>subcribe</button>
+								<button>
+									subcribe
+									<span class="glyphicon glyphicon-arrow-right"></span>
+								</button>
 							</div>
 						</div>
 					</div>
@@ -209,7 +223,10 @@
 								<input type="text" placeholder="name ...">
 								<input type="text" placeholder="email ...">
 								<textarea rows="3" placeholder="your query ..."></textarea>
-								<button>send</button>
+								<button>
+									send
+									<span class="glyphicon glyphicon-arrow-right"></span>
+								</button>
 							</div>
 						</div>
 					</div>
@@ -268,9 +285,15 @@
 					</div>
 					<div class="col-md-2 col-md-offset-2">
 						<figure class="footer_icons">
-							<i class="icon-facebook"></i>
-							<i class="icon-twitter"></i>
-							<i class="icon-linkedin"></i>
+							<div class="circle">
+								<i class="icon-facebook"></i>
+							</div>
+							<div class="circle">
+								<i class="icon-twitter"></i>
+							</div>	
+							<div class="circle">
+								<i class="icon-linkedin"></i>
+							</div>
 						</figure>
 					</div>
 				</div>
