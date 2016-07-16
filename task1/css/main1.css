@@ -51,18 +51,18 @@ table {
 .wr-slider {
   background: url("../img/bg-slider.jpg") 0 0 no-repeat;
   background-size: cover;
-  padding: 230px 0 60px 0; }
+  padding: 242px 0 56px 0; }
 
 .wr-advantages {
   background: #e7e7e7;
-  padding: 80px 0 90px 0; }
+  padding: 79px 0 63px 0; }
 
 .wr-content {
-  padding: 80px 0 60px 0; }
+  padding: 80px 0 27px 0; }
 
 .footer {
   background: #202628;
-  padding: 80px 0; }
+  padding: 75px 0; }
 
 a.logo {
   color: #e7e7e7;
@@ -80,34 +80,32 @@ a.logo {
   .header_nav ul li {
     display: inline-block;
     font-size: 0; }
-    .header_nav ul li:last-child {
-      margin-right: 0; }
     .header_nav ul li a {
       color: #e7e7e7;
       display: block;
       font-family: 'Fjalla One', sans-serif;
       font-size: 13px;
       font-weight: 400;
-      line-height: 16px;
-      letter-spacing: 0.3;
+      line-height: 15px;
+      letter-spacing: 0.5px;
       text-transform: uppercase;
-      padding: 30px 24px; }
+      padding: 31px 24px; }
     .header_nav ul li:first-child a {
       background: #e84c3d; }
 
 .item_slider .arrows {
-  margin-bottom: 20px; }
+  margin-bottom: 18px; }
   .item_slider .arrows .semicircle {
     overflow: hidden;
     display: inline-block;
     position: relative;
-    height: 125px; }
+    height: 120px; }
     .item_slider .arrows .semicircle:before {
       content: "";
       position: absolute;
       top: 0;
       bottom: 0;
-      width: 150px;
+      width: 120px;
       border-radius: 100%;
       background: #e84c3d; }
   .item_slider .arrows .semicircle-left:before {
@@ -131,8 +129,8 @@ a.logo {
   font-family: 'Fjalla One', sans-serif;
   font-size: 31px;
   font-weight: 400;
-  line-height: 50px;
-  letter-spacing: 2px;
+  line-height: 48px;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
   position: relative; }
   .item_slider .line h1:first-child:after {
@@ -142,33 +140,40 @@ a.logo {
     height: 2px;
     background: url(../img/line.png) 0 0 no-repeat;
     top: 20px;
-    right: 7px;
+    right: 100px;
     position: absolute; }
 .item_slider a {
   color: #e84c3d;
   font-family: 'Fjalla One', sans-serif;
   font-size: 15px;
   font-weight: 400;
-  line-height: 18px;
-  letter-spacing: 1px; }
+  line-height: 27px;
+  letter-spacing: 1.2px; }
 
 .advantage_icon .item_body h2 {
   color: #202628;
   font-family: 'Fjalla One', sans-serif;
   font-size: 21px;
   font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0;
+  line-height: 23px;
+  letter-spacing: 0.9px;
   text-transform: uppercase;
-  margin-bottom: 20px; }
+  margin-bottom: 18px; }
 .advantage_icon .circle {
   background: #e84c3d;
   width: 70px;
   height: 70px; }
   .advantage_icon .circle i {
-    position: absolute;
-    top: 20px;
-    left: 20px; }
+    position: absolute; }
+    .advantage_icon .circle i.icon-rocket {
+      top: 20px;
+      left: 20px; }
+    .advantage_icon .circle i.icon-shield {
+      top: 22px;
+      left: 25px; }
+    .advantage_icon .circle i.icon-fire-extinguisher {
+      top: 23px;
+      left: 23px; }
 
 .advantage_icon .circle,
 .orange_row .human_icon .circle,
@@ -180,9 +185,6 @@ a.logo {
 .orange_row .human_icon {
   color: #ffffff;
   font-size: 30px; }
-
-.item_contacts address i {
-  font-size: 20px; }
 
 .advantage_icon .item_body,
 .item_description figure .item_more {
@@ -200,24 +202,26 @@ a.logo {
   font-family: 'Lato', sans-serif;
   font-size: 14px;
   font-weight: 400;
-  line-height: 25px;
+  line-height: 23px;
   letter-spacing: 0; }
 
 .advantage_icon .item_body a,
 .item_description figure .item_more a {
   color: #e84c3d; }
 
+.item_content h2 {
+  margin-bottom: 26px; }
 .item_content h3 {
   color: #e84c3d;
   font-family: 'Lato', sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 23px;
-  letter-spacing: 0; }
+  letter-spacing: 0.1px;
+  word-spacing: 0.1px;
+  margin: -11px 0; }
 
 .item_content h2,
-.orange_row .human_icon .item_blockquote h2,
-.orange_row .item_email h2,
 .item_description h2,
 .item_query h2,
 .item_contacts h2 {
@@ -226,9 +230,8 @@ a.logo {
   font-size: 21px;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0;
-  text-transform: uppercase;
-  margin-bottom: 30px; }
+  letter-spacing: 0.9px;
+  text-transform: uppercase; }
 
 article h4 {
   color: #202628;
@@ -243,9 +246,9 @@ article p {
   font-family: 'Lato', sans-serif;
   font-size: 14px;
   font-weight: 400;
-  line-height: 17px;
+  line-height: 23px;
   letter-spacing: 0;
-  margin-bottom: 40px; }
+  margin-bottom: 38px; }
 article button {
   background: #e84c3d;
   border: none;
@@ -254,27 +257,29 @@ article button {
   font-family: 'Oswald', sans-serif;
   font-size: 14px;
   font-weight: 400;
-  line-height: 17px;
-  letter-spacing: 0;
+  line-height: 30px;
+  letter-spacing: -1px;
   text-transform: uppercase;
   width: 70px;
-  height: 40px; }
+  height: 37px; }
 
 .orange_row {
   background: #e84c3d;
   border-radius: 10px;
-  margin: 80px 0 70px 0;
-  padding: 50px 30px 60px 40px; }
+  margin: 78px 0 70px 0;
+  padding: 47px 0 31px 15px; }
   .orange_row .human_icon .circle {
     background: #202628;
+    border-radius: 50%;
     width: 70px;
-    height: 70px; }
+    height: 70px;
+    position: relative; }
     .orange_row .human_icon .circle i {
       position: absolute;
       top: 20px;
-      left: 20px; }
+      left: 22px; }
   .orange_row .human_icon .item_blockquote {
-    margin-left: 130px; }
+    margin-left: 100px; }
     .orange_row .human_icon .item_blockquote blockquote p {
       color: #ffffff;
       font-family: 'Lato', sans-serif;
@@ -293,7 +298,18 @@ article button {
   .orange_row .human_icon .item_blockquote h2,
   .orange_row .item_email h2 {
     color: #ffffff;
-    margin-bottom: 20px; }
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase; }
+  .orange_row .human_icon .item_blockquote h2 {
+    margin-bottom: 13px; }
+  .orange_row .item_email h2 {
+    margin-bottom: 27px; }
+  .orange_row .item_email .input_email input {
+    margin-right: 5px; }
 
 .orange_row .item_email .input_email input,
 .item_query .input_query input,
@@ -309,8 +325,7 @@ article button {
   letter-spacing: 0;
   width: 380px;
   height: 40px;
-  padding-left: 20px;
-  margin-bottom: 20px; }
+  padding-left: 20px; }
 
 .orange_row .item_email .input_email button,
 .item_query .input_query button {
@@ -326,26 +341,33 @@ article button {
   text-transform: uppercase;
   width: 120px;
   height: 40px;
-  position: relative; }
+  position: relative;
+  padding-right: 20px; }
 
 .item_description figure {
-  margin-top: 30px; }
+  margin-top: 25px; }
+  .item_description figure .slidebar {
+    padding: 10px 0; }
+    .item_description figure .slidebar .item_more {
+      margin-top: 5px; }
 
 .item_query .input_query {
   background: #e7e7e7;
   border-radius: 5px;
-  margin-top: 30px;
-  padding: 30px; }
+  margin-top: 25px;
+  padding: 25px 30px; }
   .item_query .input_query p {
-    margin-bottom: 20px; }
+    margin-bottom: 27px; }
   .item_query .input_query input {
     width: 310px;
-    height: 40px; }
+    height: 40px;
+    margin-bottom: 20px; }
   .item_query .input_query textarea {
     border-radius: 10px;
     width: 310px;
-    height: 80px;
-    padding-top: 10px; }
+    height: 85px;
+    padding-top: 12px;
+    margin-bottom: 18px; }
   .item_query .input_query button {
     background: #e84c3d;
     width: 100px;
@@ -362,29 +384,44 @@ article button {
 	top: 15px;
 	right: 10px;
 }*/
-.item_contacts address .item_address,
-.item_contacts address .item_phone,
-.item_contacts address .item_email_us {
-  margin-left: 50px; }
-  .item_contacts address .item_address h4,
-  .item_contacts address .item_phone h4,
-  .item_contacts address .item_email_us h4 {
-    color: #e84c3d;
-    font-family: 'Lato', sans-serif;
-    font-size: 14px;
-    font-weight: 900;
-    line-height: 17px;
-    letter-spacing: 0; }
+.item_contacts address {
+  margin-top: 25px; }
+  .item_contacts address .slidebar {
+    padding: 10px 0 20px 0; }
+    .item_contacts address .slidebar .item_address,
+    .item_contacts address .slidebar .item_phone,
+    .item_contacts address .slidebar .item_email_us {
+      margin-top: -5px;
+      margin-left: 50px; }
+      .item_contacts address .slidebar .item_address h4,
+      .item_contacts address .slidebar .item_phone h4,
+      .item_contacts address .slidebar .item_email_us h4 {
+        color: #e84c3d;
+        font-family: 'Lato', sans-serif;
+        font-size: 14px;
+        font-weight: 900;
+        line-height: 17px;
+        letter-spacing: 0; }
+  .item_contacts address i {
+    font-size: 25px; }
 
 .footer_nav {
-  margin-bottom: 10px; }
+  margin-bottom: 12px; }
   .footer_nav ul {
     list-style: none; }
     .footer_nav ul li {
-      display: inline-block; }
+      display: inline-block;
+      margin-right: 18px; }
+      .footer_nav ul li:after {
+        content: '';
+        display: inline-block;
+        width: 20px;
+        height: 10px;
+        background: url(../img/icon11.png) 15px 0 no-repeat; }
       .footer_nav ul li:last-child:after {
         content: '';
-        display: none; }
+        display: none;
+        margin-right: 0; }
       .footer_nav ul li a {
         color: #e7e7e7;
         font-family: 'Lato', sans-serif;
@@ -407,7 +444,6 @@ small.copyright {
     color: #767c7e; }
 
 .advantage_icon .circle,
-.orange_row .human_icon .circle,
 .footer_icons .circle {
   background: #e84c3d;
   border-radius: 50%;
@@ -418,13 +454,21 @@ small.copyright {
 .footer_icons .circle {
   background: #e84c3d;
   width: 40px;
-  height: 40px; }
+  height: 40px;
+  margin-top: 5px; }
   .footer_icons .circle i {
     color: #ffffff;
-    font-size: 20px;
-    position: absolute;
-    top: 10px;
-    left: 10px; }
+    font-size: 23px;
+    position: absolute; }
+    .footer_icons .circle i.icon-facebook {
+      top: 8px;
+      left: 12px; }
+    .footer_icons .circle i.icon-twitter {
+      top: 8px;
+      left: 11px; }
+    .footer_icons .circle i.icon-linkedin {
+      top: 8px;
+      left: 11px; }
   .footer_icons .circle:last-child {
     margin-right: 0px; }
 

@@ -1,35 +1,39 @@
-@import 'reset.scss';
+@import "reset.scss";
 
-$main-color: #202628;
+$color-main: #202628;
 
-$orange-color: #e84c3d;
+$color-orange: #e84c3d;
 
-$grey-color: #e7e7e7;
+$color-grey: #e7e7e7;
+
+$color-white: #ffffff;
+
+$color-font: #767c7e;
 
 .header {
-	background: $main-color;
+	background: $color-main;
 }
 
 .wr-slider {
 	background: url('../img/bg-slider.jpg') 0 0 no-repeat;
 	background-size: cover;
-	padding: 230px 0 60px 0;
+	padding: 242px 0 56px 0;
 } 
 
 .wr-advantages {
-	background: $grey-color;
-	padding: 80px 0 90px 0;
+	background: $color-grey;
+	padding: 79px 0 63px 0;
 }
 
-.wr-content {padding: 80px 0 60px 0;}
+.wr-content {padding: 80px 0 27px 0;}
 
 .footer {
-	background: $main-color;
-	padding: 80px 0;	
+	background: $color-main;
+	padding: 75px 0;	
 }
 
 a.logo {
-	color: $grey-color;
+	color: $color-grey;
 	font-family: 'Fjalla One', sans-serif;
 	font-size: 25px;
 	font-weight: 400;
@@ -49,22 +53,21 @@ a.logo {
 			display: inline-block;
 			font-size: 0;	
 			
-			&:last-child {margin-right: 0;}
-			
 			a {
-				color: $grey-color;
+				color: $color-grey;
 				display: block;
 				font-family: 'Fjalla One', sans-serif;
 				font-size: 13px;
 				font-weight: 400;
-				line-height: 16px;
-				letter-spacing: 0.3;
+				line-height: 15px;
+				letter-spacing: 0.5px;
 				text-transform: uppercase;
-				padding: 30px 24px;
+				padding: 31px 24px;
+				
 			}
 
 			&:first-child a {
-				background: $orange-color;
+				background: $color-orange;
 			}
 		}
 	}
@@ -74,22 +77,22 @@ a.logo {
 .item_slider {
 
 	.arrows {
-		margin-bottom: 20px;
+		margin-bottom: 18px;
 
 		.semicircle {
 			overflow: hidden;
 			display: inline-block;
 			position: relative;
-			height: 125px;
+			height: 120px;
 
 			&:before {    
 				content: "";
 				position: absolute;
 				top: 0;
 				bottom: 0;
-				width: 150px;
+				width: 120px;
 				border-radius: 100%;
-				background: $orange-color;
+				background: $color-orange;
 			}	
 		}
 
@@ -129,12 +132,12 @@ a.logo {
 	.line {
 
 		h1 {
-			color: $grey-color;
+			color: $color-grey;
 			font-family: 'Fjalla One', sans-serif;
 			font-size: 31px;
 			font-weight: 400;
-			line-height: 50px;
-			letter-spacing: 2px;
+			line-height: 48px;
+			letter-spacing: 2.5px;
 			text-transform: uppercase;
 			position: relative;
 			
@@ -145,44 +148,57 @@ a.logo {
 				height: 2px;
 				background: url(../img/line.png) 0 0 no-repeat;
 				top: 20px;
-				right: 7px;
+				right: 100px;
 				position: absolute;
 			}
 		}
 	}
 
 	a {
-		color: $orange-color;
+		color: $color-orange;
 		font-family: 'Fjalla One', sans-serif;
 		font-size: 15px;
 		font-weight: 400;
-		line-height: 18px;
-		letter-spacing: 1px;
+		line-height: 27px;
+		letter-spacing: 1.2px;
 	}
 }
 
 .advantage_icon {
 
 	.item_body h2 {
-	color: $main-color;
+	color: $color-main;
 	font-family: 'Fjalla One', sans-serif;
 	font-size: 21px;
 	font-weight: 400;
-	line-height: 24px;
-	letter-spacing: 0;
+	line-height: 23px;
+	letter-spacing: 0.9px;
 	text-transform: uppercase;
-	margin-bottom: 20px;
+	margin-bottom: 18px;
 	}
 
 	.circle {
-		background: $orange-color;
+		background: $color-orange;
 		width: 70px;
 		height: 70px;
 
 		i {
 			position: absolute;
+			
+		&.icon-rocket {		
 			top: 20px;
 			left: 20px;
+		}
+
+		&.icon-shield {
+			top: 22px;
+			left: 25px;
+		}
+
+		&.icon-fire-extinguisher {
+			top: 23px;
+			left: 23px;
+		}
 		}
 	}
 }
@@ -196,12 +212,8 @@ a.logo {
 
 .advantage_icon i,
 .orange_row .human_icon {
-	color: #ffffff;
+	color: $color-white;
 	font-size: 30px;	
-}
-
-.item_contacts address i {
-	font-size: 20px;
 }
 
 .advantage_icon .item_body,
@@ -217,51 +229,54 @@ a.logo {
 .item_contacts address .item_address p,
 .item_contacts address .item_phone ul li,
 .item_contacts address .item_email_us ul li a {
-	color: #767c7e;
+	color: $color-font;
 	font-family: 'Lato', sans-serif;
 	font-size: 14px;
 	font-weight: 400;
-	line-height: 25px;
+	line-height: 23px;
 	letter-spacing: 0;
 }
 
 .advantage_icon .item_body a,
 .item_description  figure .item_more a  {
-	color: $orange-color;
+	color: $color-orange;
 }
 
 .item_content {
 
+	h2 {
+		margin-bottom: 26px;
+	}
+
 	h3 {
-	color: $orange-color;
+	color: $color-orange;
 	font-family: 'Lato', sans-serif;
 	font-size: 20px;
 	font-weight: 400;
 	line-height: 23px;
-	letter-spacing: 0;
+	letter-spacing: 0.1px;
+	word-spacing: 0.1px;
+	margin: -11px 0;
 	}
 }
 
 .item_content h2,
-.orange_row .human_icon .item_blockquote h2,
-.orange_row .item_email h2,
 .item_description  h2,  
 .item_query h2,
 .item_contacts h2 {
-	color: $main-color;
+	color: $color-main;
 	font-family: 'Fjalla One', sans-serif;
 	font-size: 21px;
 	font-weight: 400;
 	line-height: 24px;
-	letter-spacing: 0;
+	letter-spacing: 0.9px;
 	text-transform: uppercase;
-	margin-bottom: 30px;
 }
 
 article {
 
 	h4 {
-	color: $main-color;
+	color: $color-main;
 	font-family: 'Lato', sans-serif;
 	font-size: 16px;
 	font-weight: 700;
@@ -271,68 +286,71 @@ article {
 	}
 
 	p {
-	color: #767c7e;
+	color: $color-font;
 	font-family: 'Lato', sans-serif;
 	font-size: 14px;
 	font-weight: 400;
-	line-height: 17px;
+	line-height: 23px;
 	letter-spacing: 0;
-	margin-bottom: 40px;
+	margin-bottom: 38px;
 	}
 
 	button {
-	background: $orange-color;
+	background: $color-orange;
 	border: none;
 	border-radius: 20px;
-	color: #ffffff;
+	color: $color-white;
 	font-family: 'Oswald', sans-serif;
 	font-size: 14px;
 	font-weight: 400;
-	line-height: 17px;
-	letter-spacing: 0;
+	line-height: 30px;
+	letter-spacing: -1px;
 	text-transform: uppercase;
 	width: 70px;
-	height: 40px;
+	height: 37px;
 	}
 }
 
+
 .orange_row {
-	background: $orange-color;
+	background: $color-orange;
 	border-radius: 10px;
-	margin: 80px 0 70px 0;
-	padding: 50px 30px 60px 40px;
+	margin: 78px 0 70px 0;
+	padding: 47px 0 31px 15px;
 	
 	.human_icon {
 
 		.circle {
-			background: $main-color;
+			background: $color-main;
+			border-radius: 50%;
 			width: 70px;
 			height: 70px;
+			position: relative;
 
 			i {
 				position: absolute;
 				top: 20px;
-				left: 20px;
+				left: 22px;
 			}
 		}
 
 		.item_blockquote {
-			margin-left: 130px;
+			margin-left: 100px;
 			
 			blockquote {
 
 				p {
-					color: #ffffff;
+					color: $color-white;
 					font-family: 'Lato', sans-serif;
 					font-size: 16px;
 					font-weight: 400;
 					line-height: 25px;
-					letter-spacing: 0;				
+					letter-spacing: 0;			
 				}
 
 				footer,
 				& cite {
-					color: #ffffff;
+					color: $color-white;
 					font-family: 'Lato', sans-serif;
 					font-size: 14px;
 					font-style: italic;
@@ -346,14 +364,24 @@ article {
 
 	.human_icon .item_blockquote h2,
 	.item_email h2 {
-	color: #ffffff;
-	margin-bottom: 20px;
+		color: $color-white;
+		font-family: 'Fjalla One', sans-serif;
+		font-size: 21px;
+		font-weight: 400;
+		line-height: 24px;
+		letter-spacing: 0.8px;
+		text-transform: uppercase;
 	}
 
+	.human_icon .item_blockquote h2 {margin-bottom: 13px;}
+
+	.item_email h2 {margin-bottom: 27px;}
+
 	.item_email {
-		
+
 		.input_email {
-			
+
+			input {margin-right: 5px;}
 		}
 	}
 }
@@ -373,15 +401,14 @@ article {
 	width: 380px;
 	height: 40px;
 	padding-left: 20px;
-	margin-bottom: 20px;
 }	
 
 .orange_row .item_email .input_email button,
 .item_query .input_query button {
-	background: $main-color;
+	background: $color-main;
 	border: none;
 	border-radius: 20px;
-	color: #ffffff;
+	color: $color-white;
 	font-family: 'Fjalla One', sans-serif;
 	font-size: 15px;
 	font-weight: 400;
@@ -391,41 +418,52 @@ article {
 	width: 120px;
 	height: 40px;
 	position: relative;
+	padding-right: 20px;
 }	
 
 .item_description {
 	
 	figure {
-		margin-top: 30px;
+		margin-top: 25px;
+		
+		.slidebar {
+			padding: 10px 0;
+			
+			.item_more {
+				margin-top: 5px;
+			}
+		}
 	}
 }
 
 .item_query {
 
 	.input_query {
-		background: $grey-color;
+		background: $color-grey;
 		border-radius: 5px;
-		margin-top: 30px;
-		padding: 30px;
+		margin-top: 25px;
+		padding: 25px 30px;
 		
 		p {
-			margin-bottom: 20px;
+			margin-bottom: 27px;
 		}
 
 		input {
 			width: 310px;
 			height: 40px;
+			margin-bottom: 20px;
 		}
 
 		textarea {
 			border-radius: 10px;
 			width: 310px;
-			height: 80px;
-			padding-top: 10px;
+			height: 85px;
+			padding-top: 12px;
+			margin-bottom: 18px;
 		}	
 
 		button {
-			background: $orange-color;
+			background: $color-orange;
 			width: 100px;
 			position: relative;
 		}	
@@ -448,20 +486,29 @@ article {
 
 	address {
 		
-		.item_address,
-		.item_phone,
-		.item_email_us {
-			margin-left: 50px;
+		margin-top: 25px;
+		
+		.slidebar {
+			padding: 10px 0 20px 0;
 			
-			h4 {
-				color: $orange-color;
+			.item_address,
+			.item_phone,
+			.item_email_us {
+				margin-top: -5px;
+				margin-left: 50px;
+				
+				h4 {
+				color: $color-orange;
 				font-family: 'Lato', sans-serif;
 				font-size: 14px;
 				font-weight: 900;
 				line-height: 17px;
 				letter-spacing: 0;
+				}
 			}
 		}
+
+		i {font-size: 25px;}
 
 		.item_phone ul {}
 
@@ -471,23 +518,32 @@ article {
 	}
 }
 
-
 .footer_nav {
-	margin-bottom: 10px;
+	margin-bottom: 12px;
 	
 	ul {
 		list-style: none;
 		
 		li {
 			display: inline-block;
+			margin-right: 18px;
+			
+			&:after {
+				content: '';
+				display: inline-block;
+				width: 20px;
+				height: 10px;
+				background: url(../img/icon11.png) 15px 0 no-repeat;
+			}
 			
 			&:last-child:after {
 				content: '';
 				display: none;
+				margin-right: 0;
 			}
 
 			a {
-				color: $grey-color;
+				color: $color-grey;
 				font-family: 'Lato', sans-serif;
 				font-size: 14px;
 				font-weight: 400;
@@ -500,7 +556,7 @@ article {
 }
 
 small.copyright {
-	color: #767c7e;
+	color: $color-font;
 	font-family: 'Lato', sans-serif;
 	font-size: 14px;
 	font-weight: 400;
@@ -508,15 +564,14 @@ small.copyright {
 	letter-spacing: 0;
 	
 	span,
-	a.design {color: $orange-color;}
+	a.design {color: $color-orange;}
 
-	a.images {color: #767c7e;} 
+	a.images {color: $color-font;} 
 }
 
 .advantage_icon .circle,
-.orange_row .human_icon .circle,
 .footer_icons .circle {
-	background: $orange-color;
+	background: $color-orange;
 	border-radius: 50%;
 	display: inline-block;
 	margin-right: 10px;
@@ -526,16 +581,30 @@ small.copyright {
 .footer_icons {
 
 	.circle {
-		background: $orange-color;
+		background: $color-orange;
 		width: 40px;
 		height: 40px;
+		margin-top: 5px;
 
 		i {
-			color: #ffffff;
-			font-size: 20px;
+			color: $color-white;
+			font-size: 23px;
 			position: absolute;
-			top: 10px;
-			left: 10px;
+			
+			&.icon-facebook {
+				top: 8px;
+				left: 12px;
+			}
+
+			&.icon-twitter {
+				top: 8px;
+				left: 11px;
+			}
+
+			&.icon-linkedin {
+				top: 8px;
+				left: 11px;
+			}
 		}
 
 		&:last-child {margin-right: 0px;}
