@@ -66,12 +66,14 @@ table {
 
 a.logo {
   color: #e7e7e7;
-  font-family: 'Fjalla One', sans-serif;
   font-size: 25px;
   font-weight: 400;
   line-height: 28px;
   letter-spacing: 0;
-  text-transform: uppercase; }
+  font-family: 'Fjalla One', sans-serif;
+  display: block;
+  text-transform: uppercase;
+  padding: 25px 0; }
 
 .header_nav ul {
   float: right;
@@ -82,19 +84,22 @@ a.logo {
     font-size: 0; }
     .header_nav ul li a {
       color: #e7e7e7;
-      display: block;
-      font-family: 'Fjalla One', sans-serif;
       font-size: 13px;
       font-weight: 400;
       line-height: 15px;
       letter-spacing: 0.5px;
+      display: block;
+      font-family: 'Fjalla One', sans-serif;
       text-transform: uppercase;
-      padding: 31px 24px; }
+      padding: 31px 23px;
+      text-decoration: none; }
+      .header_nav ul li a:hover {
+        background: #e84c3d; }
     .header_nav ul li:first-child a {
       background: #e84c3d; }
 
 .item_slider .arrows {
-  margin-bottom: 18px; }
+  margin-bottom: 16px; }
   .item_slider .arrows .semicircle {
     overflow: hidden;
     display: inline-block;
@@ -108,29 +113,25 @@ a.logo {
       width: 120px;
       border-radius: 100%;
       background: #e84c3d; }
-  .item_slider .arrows .semicircle-left:before {
-    left: 0; }
-  .item_slider .arrows .semicircle-left i {
-    font-size: 30px;
-    position: absolute;
-    top: 50px;
-    left: 20px; }
-  .item_slider .arrows .semicircle-right:before {
-    right: 0; }
+  .item_slider .arrows .semicircle-left i,
   .item_slider .arrows .semicircle-right i {
     font-size: 30px;
     position: absolute;
-    top: 50px;
-    left: 20px; }
+    top: 45px;
+    left: 25px; }
+  .item_slider .arrows .semicircle-left:before {
+    left: 0; }
+  .item_slider .arrows .semicircle-right:before {
+    right: 0; }
   .item_slider .arrows .c2 {
     width: 60px; }
 .item_slider .line h1 {
   color: #e7e7e7;
-  font-family: 'Fjalla One', sans-serif;
   font-size: 31px;
   font-weight: 400;
   line-height: 48px;
   letter-spacing: 2.5px;
+  font-family: 'Fjalla One', sans-serif;
   text-transform: uppercase;
   position: relative; }
   .item_slider .line h1:first-child:after {
@@ -144,19 +145,20 @@ a.logo {
     position: absolute; }
 .item_slider a {
   color: #e84c3d;
-  font-family: 'Fjalla One', sans-serif;
   font-size: 15px;
   font-weight: 400;
   line-height: 27px;
-  letter-spacing: 1.2px; }
+  letter-spacing: 1.2px;
+  color: #e84c3d;
+  font-family: 'Fjalla One', sans-serif; }
 
 .advantage_icon .item_body h2 {
   color: #202628;
-  font-family: 'Fjalla One', sans-serif;
   font-size: 21px;
   font-weight: 400;
   line-height: 23px;
   letter-spacing: 0.9px;
+  font-family: 'Fjalla One', sans-serif;
   text-transform: uppercase;
   margin-bottom: 18px; }
 .advantage_icon .circle {
@@ -199,25 +201,26 @@ a.logo {
 .item_contacts address .item_phone ul li,
 .item_contacts address .item_email_us ul li a {
   color: #767c7e;
-  font-family: 'Lato', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 23px;
-  letter-spacing: 0; }
+  letter-spacing: 0;
+  font-family: 'Lato', sans-serif; }
 
 .advantage_icon .item_body a,
 .item_description figure .item_more a {
   color: #e84c3d; }
 
 .item_content h2 {
+  letter-spacing: 1.5px;
   margin-bottom: 26px; }
 .item_content h3 {
   color: #e84c3d;
-  font-family: 'Lato', sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 23px;
   letter-spacing: 0.1px;
+  font-family: 'Lato', sans-serif;
   word-spacing: 0.1px;
   margin: -11px 0; }
 
@@ -226,39 +229,39 @@ a.logo {
 .item_query h2,
 .item_contacts h2 {
   color: #202628;
-  font-family: 'Fjalla One', sans-serif;
   font-size: 21px;
   font-weight: 400;
   line-height: 24px;
   letter-spacing: 0.9px;
+  font-family: 'Fjalla One', sans-serif;
   text-transform: uppercase; }
 
 article h4 {
   color: #202628;
-  font-family: 'Lato', sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 19px;
   letter-spacing: 0;
+  font-family: 'Lato', sans-serif;
   margin-bottom: 10px; }
 article p {
   color: #767c7e;
-  font-family: 'Lato', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 23px;
   letter-spacing: 0;
+  font-family: 'Lato', sans-serif;
   margin-bottom: 38px; }
 article button {
   background: #e84c3d;
   border: none;
   border-radius: 20px;
   color: #ffffff;
-  font-family: 'Oswald', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 30px;
   letter-spacing: -1px;
+  font-family: 'Oswald', sans-serif;
   text-transform: uppercase;
   width: 70px;
   height: 37px; }
@@ -282,27 +285,27 @@ article button {
     margin-left: 100px; }
     .orange_row .human_icon .item_blockquote blockquote p {
       color: #ffffff;
-      font-family: 'Lato', sans-serif;
       font-size: 16px;
       font-weight: 400;
       line-height: 25px;
-      letter-spacing: 0; }
+      letter-spacing: 0;
+      font-family: 'Lato', sans-serif; }
     .orange_row .human_icon .item_blockquote blockquote footer, .orange_row .human_icon .item_blockquote blockquote cite {
       color: #ffffff;
-      font-family: 'Lato', sans-serif;
       font-size: 14px;
-      font-style: italic;
       font-weight: 400;
       line-height: 20px;
-      letter-spacing: 0; }
+      letter-spacing: 0;
+      font-family: 'Lato', sans-serif;
+      font-style: italic; }
   .orange_row .human_icon .item_blockquote h2,
   .orange_row .item_email h2 {
     color: #ffffff;
-    font-family: 'Fjalla One', sans-serif;
     font-size: 21px;
     font-weight: 400;
     line-height: 24px;
     letter-spacing: 0.8px;
+    font-family: 'Fjalla One', sans-serif;
     text-transform: uppercase; }
   .orange_row .human_icon .item_blockquote h2 {
     margin-bottom: 13px; }
@@ -317,12 +320,12 @@ article button {
   border: none;
   border-radius: 20px;
   color: #9faaad;
-  font-family: 'Lato', sans-serif;
   font-size: 14px;
-  font-style: italic;
   font-weight: 400;
   line-height: 17px;
   letter-spacing: 0;
+  font-family: 'Lato', sans-serif;
+  font-style: italic;
   width: 380px;
   height: 40px;
   padding-left: 20px; }
@@ -333,11 +336,11 @@ article button {
   border: none;
   border-radius: 20px;
   color: #ffffff;
-  font-family: 'Fjalla One', sans-serif;
   font-size: 15px;
   font-weight: 400;
   line-height: 18px;
   letter-spacing: 0;
+  font-family: 'Fjalla One', sans-serif;
   text-transform: uppercase;
   width: 120px;
   height: 40px;
@@ -397,11 +400,11 @@ article button {
       .item_contacts address .slidebar .item_phone h4,
       .item_contacts address .slidebar .item_email_us h4 {
         color: #e84c3d;
-        font-family: 'Lato', sans-serif;
         font-size: 14px;
         font-weight: 900;
         line-height: 17px;
-        letter-spacing: 0; }
+        letter-spacing: 0;
+        font-family: 'Lato', sans-serif; }
   .item_contacts address i {
     font-size: 25px; }
 
@@ -424,19 +427,19 @@ article button {
         margin-right: 0; }
       .footer_nav ul li a {
         color: #e7e7e7;
-        font-family: 'Lato', sans-serif;
         font-size: 14px;
         font-weight: 400;
         line-height: 17px;
-        letter-spacing: 0; }
+        letter-spacing: 0.5px;
+        font-family: 'Lato', sans-serif; }
 
 small.copyright {
   color: #767c7e;
-  font-family: 'Lato', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
-  letter-spacing: 0; }
+  letter-spacing: 0;
+  font-family: 'Lato', sans-serif; }
   small.copyright span,
   small.copyright a.design {
     color: #e84c3d; }

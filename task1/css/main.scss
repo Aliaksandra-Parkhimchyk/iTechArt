@@ -10,6 +10,14 @@ $color-white: #ffffff;
 
 $color-font: #767c7e;
 
+@mixin font($color, $size, $weight, $line-height, $letter-spacing) {
+	color: $color;
+	font-size: $size;
+	font-weight: $weight;
+	line-height: $line-height;
+	letter-spacing: $letter-spacing;
+}
+
 .header {
 	background: $color-main;
 }
@@ -33,13 +41,11 @@ $color-font: #767c7e;
 }
 
 a.logo {
-	color: $color-grey;
+	@include font($color-grey, 25px, 400, 28px, 0);
 	font-family: 'Fjalla One', sans-serif;
-	font-size: 25px;
-	font-weight: 400;
-	line-height: 28px;
-	letter-spacing: 0;
+	display: block;
 	text-transform: uppercase;
+	padding: 25px 0;
 }
 
 .header_nav {
@@ -54,16 +60,16 @@ a.logo {
 			font-size: 0;	
 			
 			a {
-				color: $color-grey;
+				@include font($color-grey, 13px, 400, 15px, 0.5px);
 				display: block;
 				font-family: 'Fjalla One', sans-serif;
-				font-size: 13px;
-				font-weight: 400;
-				line-height: 15px;
-				letter-spacing: 0.5px;
 				text-transform: uppercase;
-				padding: 31px 24px;
+				padding: 31px 23px;
+				text-decoration: none;
 				
+				&:hover {
+					background: $color-orange;
+				}	
 			}
 
 			&:first-child a {
@@ -77,7 +83,7 @@ a.logo {
 .item_slider {
 
 	.arrows {
-		margin-bottom: 18px;
+		margin-bottom: 16px;
 
 		.semicircle {
 			overflow: hidden;
@@ -95,33 +101,24 @@ a.logo {
 				background: $color-orange;
 			}	
 		}
-
-		.semicircle-left {
-
-			&:before {
-				left: 0;
-			}
+		
+		.semicircle-left,
+		.semicircle-right {
 
 			i {
 				font-size: 30px;
 				position: absolute;
-				top: 50px;
-				left: 20px;
+				top: 45px;
+				left: 25px;
 			}
 		}
 
-		.semicircle-right {
+		.semicircle-left:before {
+			left: 0;
+		}
 
-			&:before {
-				right: 0;
-			}
-
-			i {
-				font-size: 30px;
-				position: absolute;
-				top: 50px;
-				left: 20px;
-			}
+		.semicircle-right:before {
+			right: 0;
 		}
 
 		.c2 {
@@ -132,12 +129,8 @@ a.logo {
 	.line {
 
 		h1 {
-			color: $color-grey;
+			@include font($color-grey, 31px, 400, 48px, 2.5px);
 			font-family: 'Fjalla One', sans-serif;
-			font-size: 31px;
-			font-weight: 400;
-			line-height: 48px;
-			letter-spacing: 2.5px;
 			text-transform: uppercase;
 			position: relative;
 			
@@ -155,50 +148,43 @@ a.logo {
 	}
 
 	a {
+		@include font($color-orange, 15px, 400, 27px, 1.2px);
 		color: $color-orange;
 		font-family: 'Fjalla One', sans-serif;
-		font-size: 15px;
-		font-weight: 400;
-		line-height: 27px;
-		letter-spacing: 1.2px;
 	}
 }
 
 .advantage_icon {
 
 	.item_body h2 {
-	color: $color-main;
-	font-family: 'Fjalla One', sans-serif;
-	font-size: 21px;
-	font-weight: 400;
-	line-height: 23px;
-	letter-spacing: 0.9px;
-	text-transform: uppercase;
-	margin-bottom: 18px;
-	}
+		@include font($color-main, 21px, 400, 23px, 0.9px);
+		font-family: 'Fjalla One', sans-serif;
+		text-transform: uppercase;
+		margin-bottom: 18px;
+		}
 
-	.circle {
-		background: $color-orange;
-		width: 70px;
-		height: 70px;
+		.circle {
+			background: $color-orange;
+			width: 70px;
+			height: 70px;
 
-		i {
-			position: absolute;
+			i {
+				position: absolute;
 			
-		&.icon-rocket {		
-			top: 20px;
-			left: 20px;
-		}
+			&.icon-rocket {		
+				top: 20px;
+				left: 20px;
+			}
 
-		&.icon-shield {
-			top: 22px;
-			left: 25px;
-		}
-
-		&.icon-fire-extinguisher {
-			top: 23px;
-			left: 23px;
-		}
+			&.icon-shield {
+				top: 22px;
+				left: 25px;
+			}
+	
+			&.icon-fire-extinguisher {
+				top: 23px;
+				left: 23px;
+			}		
 		}
 	}
 }
@@ -229,88 +215,67 @@ a.logo {
 .item_contacts address .item_address p,
 .item_contacts address .item_phone ul li,
 .item_contacts address .item_email_us ul li a {
-	color: $color-font;
+	@include font($color-font, 14px, 400, 23px, 0);
 	font-family: 'Lato', sans-serif;
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 23px;
-	letter-spacing: 0;
 }
 
-.advantage_icon .item_body a,
-.item_description  figure .item_more a  {
-	color: $color-orange;
+.advantage_icon .item_body,
+.item_description  figure .item_more {
+	a {color: $color-orange;}
 }
 
 .item_content {
 
 	h2 {
+		letter-spacing: 1.5px;
 		margin-bottom: 26px;
 	}
 
 	h3 {
-	color: $color-orange;
-	font-family: 'Lato', sans-serif;
-	font-size: 20px;
-	font-weight: 400;
-	line-height: 23px;
-	letter-spacing: 0.1px;
-	word-spacing: 0.1px;
-	margin: -11px 0;
+		@include font($color-orange, 20px, 400, 23px, 0.1px);
+		font-family: 'Lato', sans-serif;
+		word-spacing: 0.1px;
+		margin: -11px 0;
 	}
 }
 
-.item_content h2,
-.item_description  h2,  
-.item_query h2,
-.item_contacts h2 {
-	color: $color-main;
-	font-family: 'Fjalla One', sans-serif;
-	font-size: 21px;
-	font-weight: 400;
-	line-height: 24px;
-	letter-spacing: 0.9px;
-	text-transform: uppercase;
+.item_content,
+.item_description,  
+.item_query,
+.item_contacts {
+
+	h2 {
+		@include font($color-main, 21px, 400, 24px, 0.9px);
+		font-family: 'Fjalla One', sans-serif;
+		text-transform: uppercase;
+	}
 }
 
 article {
 
 	h4 {
-	color: $color-main;
-	font-family: 'Lato', sans-serif;
-	font-size: 16px;
-	font-weight: 700;
-	line-height: 19px;
-	letter-spacing: 0;
-	margin-bottom: 10px;
+		@include font($color-main, 16px, 700, 19px, 0);
+		font-family: 'Lato', sans-serif;
+		margin-bottom: 10px;
 	}
 
 	p {
-	color: $color-font;
-	font-family: 'Lato', sans-serif;
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 23px;
-	letter-spacing: 0;
-	margin-bottom: 38px;
+		@include font($color-font, 14px, 400, 23px, 0);
+		font-family: 'Lato', sans-serif;
+		margin-bottom: 38px;
 	}
 
 	button {
-	background: $color-orange;
-	border: none;
-	border-radius: 20px;
-	color: $color-white;
-	font-family: 'Oswald', sans-serif;
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 30px;
-	letter-spacing: -1px;
-	text-transform: uppercase;
-	width: 70px;
-	height: 37px;
+		background: $color-orange;
+		border: none;
+		border-radius: 20px;
+		@include font($color-white, 14px, 400, 30px, -1px);	
+		font-family: 'Oswald', sans-serif;
+		text-transform: uppercase;
+		width: 70px;
+		height: 37px;
 	}
 }
-
 
 .orange_row {
 	background: $color-orange;
@@ -340,37 +305,28 @@ article {
 			blockquote {
 
 				p {
-					color: $color-white;
-					font-family: 'Lato', sans-serif;
-					font-size: 16px;
-					font-weight: 400;
-					line-height: 25px;
-					letter-spacing: 0;			
+					@include font($color-white, 16px, 400, 25px, 0);	
+					font-family: 'Lato', sans-serif;			
 				}
 
 				footer,
 				& cite {
-					color: $color-white;
+					@include font($color-white, 14px, 400, 20px, 0);
 					font-family: 'Lato', sans-serif;
-					font-size: 14px;
 					font-style: italic;
-					font-weight: 400;
-					line-height: 20px;
-					letter-spacing: 0;
 				}
 			}
 		}
 	}
 
-	.human_icon .item_blockquote h2,
-	.item_email h2 {
-		color: $color-white;
-		font-family: 'Fjalla One', sans-serif;
-		font-size: 21px;
-		font-weight: 400;
-		line-height: 24px;
-		letter-spacing: 0.8px;
-		text-transform: uppercase;
+	.human_icon .item_blockquote,
+	.item_email {
+
+		h2 {
+			@include font($color-white, 21px, 400, 24px, 0.8px);
+			font-family: 'Fjalla One', sans-serif;
+			text-transform: uppercase;
+		}	
 	}
 
 	.human_icon .item_blockquote h2 {margin-bottom: 13px;}
@@ -391,34 +347,29 @@ article {
 .item_query .input_query textarea {
 	border: none;
 	border-radius: 20px;
-	color: #9faaad;
+	@include font(#9faaad, 14px, 400, 17px, 0);
 	font-family: 'Lato', sans-serif;
-	font-size: 14px;
 	font-style: italic;
-	font-weight: 400;
-	line-height: 17px;
-	letter-spacing: 0;
 	width: 380px;
 	height: 40px;
 	padding-left: 20px;
 }	
 
-.orange_row .item_email .input_email button,
-.item_query .input_query button {
-	background: $color-main;
-	border: none;
-	border-radius: 20px;
-	color: $color-white;
-	font-family: 'Fjalla One', sans-serif;
-	font-size: 15px;
-	font-weight: 400;
-	line-height: 18px;
-	letter-spacing: 0;
-	text-transform: uppercase;
-	width: 120px;
-	height: 40px;
-	position: relative;
-	padding-right: 20px;
+.orange_row .item_email .input_email,
+.item_query .input_query {
+
+	button {
+		background: $color-main;
+		border: none;
+		border-radius: 20px;
+		@include font($color-white, 15px, 400, 18px, 0);
+		font-family: 'Fjalla One', sans-serif;
+		text-transform: uppercase;
+		width: 120px;
+		height: 40px;
+		position: relative;
+		padding-right: 20px;
+	}
 }	
 
 .item_description {
@@ -498,12 +449,8 @@ article {
 				margin-left: 50px;
 				
 				h4 {
-				color: $color-orange;
-				font-family: 'Lato', sans-serif;
-				font-size: 14px;
-				font-weight: 900;
-				line-height: 17px;
-				letter-spacing: 0;
+					@include font($color-orange, 14px, 900, 17px, 0);
+					font-family: 'Lato', sans-serif;
 				}
 			}
 		}
@@ -543,25 +490,16 @@ article {
 			}
 
 			a {
-				color: $color-grey;
+				@include font($color-grey, 14px, 400, 17px, 0.5px);
 				font-family: 'Lato', sans-serif;
-				font-size: 14px;
-				font-weight: 400;
-				line-height: 17px;
-				letter-spacing: 0;
 			}
-
 		}
 	}
 }
 
 small.copyright {
-	color: $color-font;
+	@include font($color-font, 14px, 400, 17px, 0);
 	font-family: 'Lato', sans-serif;
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 17px;
-	letter-spacing: 0;
 	
 	span,
 	a.design {color: $color-orange;}
