@@ -93,9 +93,7 @@ a.logo {
       text-transform: uppercase;
       padding: 31px 23px;
       text-decoration: none; }
-      .header_nav ul li a:hover {
-        background: #e84c3d; }
-    .header_nav ul li:first-child a {
+    .header_nav ul li:hover, .header_nav ul li.active a {
       background: #e84c3d; }
 
 .item_slider .arrows {

@@ -66,19 +66,13 @@ a.logo {
 				text-transform: uppercase;
 				padding: 31px 23px;
 				text-decoration: none;
-				
-				&:hover {
-					background: $color-orange;
-				}	
 			}
 
-			&:first-child a {
-				background: $color-orange;
-			}
+			&:hover,
+			&.active a {background: $color-orange;}
 		}
 	}
 }
-
 
 .item_slider {
 
