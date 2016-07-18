@@ -137,10 +137,10 @@ a.logo {
     display: block;
     width: 252px;
     height: 2px;
-    background: url(../img/line.png) 0 0 no-repeat;
     top: 20px;
     right: 100px;
-    position: absolute; }
+    position: absolute;
+    background: #e7e7e7; }
 .item_slider a {
   color: #e84c3d;
   font-size: 15px;
@@ -368,7 +368,8 @@ article button {
     width: 310px;
     height: 85px;
     padding-top: 12px;
-    margin-bottom: 18px; }
+    margin-bottom: 18px;
+    max-width: 100%; }
   .item_query .input_query button {
     background: #e84c3d;
     width: 100px;

@@ -136,10 +136,10 @@ a.logo {
 				display: block;
 				width: 252px;
 				height: 2px;
-				background: url(../img/line.png) 0 0 no-repeat;
 				top: 20px;
 				right: 100px;
 				position: absolute;
+				background: $color-grey;
 			}
 		}
 	}
@@ -408,6 +408,7 @@ article {
 			height: 85px;
 			padding-top: 12px;
 			margin-bottom: 18px;
+			max-width: 100%;
 		}	
 
 		button {
