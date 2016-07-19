@@ -88,20 +88,51 @@ function getMaxLen(array) {
 	}
  
 	var maxLen = arrayLen[0];
-	for (var i = 0; i < array.length; i += 1) {
-		maxLen = Math.max(maxLen, arrayLen[i]);
-	}
-
 	var index;
-	for (var i = 0; i < arrayLen.length; i += 1){
-		if (arrayLen[i] === maxLen)
-			index = i;
+	for (var i = 0; i < arrayLen.length; i += 1) {
+		maxLen = Math.max(maxLen, arrayLen[i]);
+		index = i;
 	}
 
-	for (var i = index - maxLen + 1; i <= index ; i++)
+	for (var i = index - maxLen + 1; i < index ; i++)
 		arrayMaxLen.push(array[i]);
 
 	return arrayMaxLen;
 }
 
 console.log(getMaxLen([1,3,7,4,6,7,8,1,2,5,7,8,90,1]));
+console.log(getMaxLen([1,3,7,4,8,9,10,15,20,30,40,6,7,8,1,2,5,7,8,90,1]));
+
+
+/*
+
+function getMaxSequence (a) {
+	var s = [];
+	var c;
+	var prev;
+
+	for (var i = 0; i < a.length; i++) {
+
+		if (!c) {
+			c = {
+				s: i,
+				e: i,
+				l: 1
+			};
+		}
+
+		if (prev && a[i] > prev ) {
+			c.e = i;
+			c.l++;
+		} else if (prev && a[i] <= prev) {
+			s.push(c);
+			c = null;
+			prev = null;
+		}
+
+		prev = i;
+	}
+
+	return s;
+}
+*/
