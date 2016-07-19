@@ -73,47 +73,78 @@ function compareNumbers(num1, num2) {
 
 function getMaxLen(array) {
 
-	var arrayLen = [];
-	var arrayMaxLen = [];
+	if (!array.length) {
+		return [];
+	}
+
+	var arrayL = [];
 
 	for (var i = 0; i < array.length; i += 1) {
 
-		arrayLen[i] = 1;
-
-		for (var j = 0; j < i; j += 1) {
-
-			if (array[j] < array[i])
-				arrayLen[i] = Math.max(arrayLen[i], arrayLen[j] + 1);
+		if (i === 0) {
+			arrayL[i] = 1;
+		} else {
+			if (array[i] > array[i-1]) {
+				arrayL[i] = arrayL[i - 1] + 1;
+			} else {
+				arrayL[i] = 1;
+			}
 		}
 	}
- 
-	var maxLen = arrayLen[0];
-	var index;
-	for (var i = 0; i < arrayLen.length; i += 1) {
-		maxLen = Math.max(maxLen, arrayLen[i]);
-		index = i;
+
+	var index = 0;
+	var max = arrayL[0];
+
+	for (var i = 0; i < arrayL.length; i += 1) {
+		if (arrayL[i] > max) {
+			index = i;
+			max = arrayL[i];
+		}
 	}
 
-	for (var i = index - maxLen + 1; i < index ; i++)
-		arrayMaxLen.push(array[i]);
-
-	return arrayMaxLen;
+	return array.slice(index - max + 1, index + 1);
 }
 
 console.log(getMaxLen([1,3,7,4,6,7,8,1,2,5,7,8,90,1]));
 console.log(getMaxLen([1,3,7,4,8,9,10,15,20,30,40,6,7,8,1,2,5,7,8,90,1]));
+console.log(getMaxLen([1,3,730,40,6,7,890,1]));
+console.log(getMaxLen([1,3,7,4,1,2,5,71]));
 
-
-/*
 
 function getMaxSequence (a) {
+
+	if (!a.length) {
+		return [];
+	}
+
 	var s = [];
 	var c;
 	var prev;
 
 	for (var i = 0; i < a.length; i++) {
 
-		if (!c) {
+		if(i === 0) {
+			c = {
+				s: i,
+				e: i,
+				l: 1
+			};
+
+			prev = a[i];
+			continue;
+		}
+
+		if (a[i] > prev ) {
+			c.e = i;
+			c.l++;
+
+			if (i === a.length - 1) {
+				s.push(c);
+			}
+
+		} else {
+			s.push(c);
+
 			c = {
 				s: i,
 				e: i,
@@ -121,18 +152,23 @@ function getMaxSequence (a) {
 			};
 		}
 
-		if (prev && a[i] > prev ) {
-			c.e = i;
-			c.l++;
-		} else if (prev && a[i] <= prev) {
-			s.push(c);
-			c = null;
-			prev = null;
-		}
-
-		prev = i;
+		prev = a[i];
 	}
 
-	return s;
+	var max = {
+		l:0
+	};
+
+	s.forEach(function (item) {
+		if(item.l > max.l) {
+			max = item;
+		}
+	});
+
+	return a.slice(max.s, max.e + 1);
 }
-*/
+
+console.log(getMaxSequence([1,3,7,4,6,7,8,1,2,5,7,8,90,1]));
+console.log(getMaxSequence([1,3,7,4,8,9,10,15,20,30,40,6,7,8,1,2,5,7,8,90,1]));
+console.log(getMaxSequence([1,3,730,40,6,7,890,1]));
+console.log(getMaxSequence([1,3,7,4,1,2,5,71]));
