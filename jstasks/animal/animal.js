@@ -41,7 +41,7 @@ function Wolf(name, health, satiety, fatigue, speed) {
     this.howl = function () {
         console.log(this.name + "is howling!");
     };
-};
+}
 
 Wolf.prototype = new Animal();
 Wolf.prototype.constructor = Wolf;
@@ -55,7 +55,7 @@ function Rabbit(name, health, satiety, fatigue, speed, hide) {
     this.jump = function () {
         console.log(this.name + " is jumping!");
     };
-};
+}
 
 Rabbit.prototype = new Animal();
 Rabbit.prototype.constructor = Rabbit;

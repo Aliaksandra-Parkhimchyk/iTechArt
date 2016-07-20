@@ -54,7 +54,7 @@ var arrayProcessingTool = {
         array.sort(this.compareNumbers);
         var median;
 
-        if (array.length % 2 == 0) {
+        if (array.length % 2 === 0) {
             median = (array[array.length / 2] + array[array.length / 2 - 1]) / 2;
 
         } else {
@@ -113,6 +113,9 @@ console.log(arrayProcessingTool.getMedianValue([-1, 2, 3, -9, 11]));
 
 console.log(arrayProcessingTool.getMaxLen([1, 3, 7, 4, 6, 7, 8, 1, 2, 5, 7, 8, 90, 1]));
 
+var matrix = [];
+var cacheMatrix = [];
+
 var arraySorter = {
 
     bubbleSort: function (array) {
@@ -152,25 +155,48 @@ var arraySorter = {
 
     insertionSort: function (array) {
 
-        for (var i = 0; i < array.length; i += 1) {
-            var v = array[i];
-            var j = i - 1;
-            while (j >= 0 && array[j] > v) {
-                array[j + 1] = array[j];
-                j--;
-            }
-            array[j + 1] = v;
-        }
-        return array;
-    },
+        var newArray = array.slice();
 
-    cachingCalculator: function (array) {
-        var cacheArray = array;
+        if (matrix.length === 0) {
+            matrix.push(array);
+            for (var i = 0; i < newArray.length; i += 1) {
+                var v = newArray[i];
+                var j = i - 1;
+                while (j >= 0 && newArray[j] > v) {
+                    newArray[j + 1] = newArray[j];
+                    j -= 1;
+                }
+                newArray[j + 1] = v;
+            }
+            cacheMatrix.push(newArray);
+            return ":)" + newArray;
+        }
+
+        for (var i = 0; i < matrix.length; i += 1) {
+            if (matrix[i].join() === array.join()) {
+                return "Array is taken from the cache: " + cacheMatrix[i];
+            }
+        }
+
+        matrix.push(array);
+
+        for (var i = 0; i < newArray.length; i += 1) {
+            var v = newArray[i];
+            var j = i - 1;
+            while (j >= 0 && newArray[j] > v) {
+                newArray[j + 1] = newArray[j];
+                j -= 1;
+            }
+            newArray[j + 1] = v;
+        }
+        cacheMatrix.push(newArray);
+        return "Array isn't taken from the cache: " + newArray;
     }
 };
 
 console.log(arraySorter.bubbleSort([1, 3, 7, 4, 6, 7, 8, 1, 2, 5, 7, 8, 90, 1]));
 console.log(arraySorter.selectionSort([1, 3, 7, 4, 6, 7, 8, 1, 2, 5, 7, 8, 90, 1]));
+console.log(arraySorter.insertionSort([1, 3, 7, 4, 6, 7, 8, 1, 2, 5, 7, 8, 90, 1]));
 console.log(arraySorter.insertionSort([1, 3, 7, 4, 6, 7, 8, 1, 2, 5, 7, 8, 90, 1]));
 
 var binaryConverter = {
