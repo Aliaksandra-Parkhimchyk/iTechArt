@@ -113,10 +113,12 @@ console.log(arrayProcessingTool.getMedianValue([-1, 2, 3, -9, 11]));
 
 console.log(arrayProcessingTool.getMaxLen([1, 3, 7, 4, 6, 7, 8, 1, 2, 5, 7, 8, 90, 1]));
 
-var matrix = [];
-var cacheMatrix = [];
-
 var arraySorter = {
+
+    cash: {
+        matrix: [],
+        cacheMatrix: []
+    },
 
     bubbleSort: function (array) {
 
@@ -157,8 +159,8 @@ var arraySorter = {
 
         var newArray = array.slice();
 
-        if (matrix.length === 0) {
-            matrix.push(array);
+        if (this.cash.matrix.length === 0) {
+            this.cash.matrix.push(array);
             for (var i = 0; i < newArray.length; i += 1) {
                 var v = newArray[i];
                 var j = i - 1;
@@ -168,17 +170,17 @@ var arraySorter = {
                 }
                 newArray[j + 1] = v;
             }
-            cacheMatrix.push(newArray);
+            this.cash.cacheMatrix.push(newArray);
             return ":)" + newArray;
         }
 
-        for (var i = 0; i < matrix.length; i += 1) {
-            if (matrix[i].join() === array.join()) {
-                return "Array is taken from the cache: " + cacheMatrix[i];
+        for (var i = 0; i < this.cash.matrix.length; i += 1) {
+            if (this.cash.matrix[i].join() === array.join()) {
+                return "Array is taken from the cache: " + this.cash.cacheMatrix[i];
             }
         }
 
-        matrix.push(array);
+        this.cash.matrix.push(array);
 
         for (var i = 0; i < newArray.length; i += 1) {
             var v = newArray[i];
@@ -189,7 +191,7 @@ var arraySorter = {
             }
             newArray[j + 1] = v;
         }
-        cacheMatrix.push(newArray);
+        this.cash.cacheMatrix.push(newArray);
         return "Array isn't taken from the cache: " + newArray;
     }
 };
