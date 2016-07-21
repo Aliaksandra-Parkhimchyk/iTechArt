@@ -244,3 +244,4 @@ var binaryConverter = {
 
 console.log(binaryConverter.conversionFromDecimalToBinary([1, 3, 7, 4]));
 console.log(binaryConverter.conversionFromBinaryToDecimal([1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0]));
+

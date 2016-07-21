@@ -1,33 +1,32 @@
-function Animal(name, health, satiety, fatigue, speed) {
+function Animal(name, isHealth, isSatiety, isFatigue, speed) {
 
-    this.name = name; 
+    this.name = name;
 
-    this.health = health;
+    this.isHealth = isHealth;
 
-    this.satiety = satiety;
+    this.isSatiety = isSatiety;
 
-    this.fatigue = fatigue;
+    this.isFatigue = isFatigue;
 
     this.speed = speed;
 
     this.eat = function () {
-        console.log(this.name +  " is eating!");
+        console.log(this.name + " is eating!");
         this.satiety = true;
     };
 
     this.run = function () {
-        console.log(this.name +  " is running!");
+        console.log(this.name + " is running!");
     };
 
     this.sleep = function () {
-        console.log(this.name +  " is sleeping!");
+        console.log(this.name + " is sleeping!");
     };
 }
 
+function Wolf(name, isHealth, isSatiety, isFatigue, speed) {
 
-function Wolf(name, health, satiety, fatigue, speed) {
-
-    Animal.call(this, name, health, satiety, fatigue, speed);
+    Animal.call(this, name, isHealth, isSatiety, isFatigue, speed);
 
     this.eat = function (rabbit) {
         if (rabbit.hide) {
@@ -46,11 +45,11 @@ function Wolf(name, health, satiety, fatigue, speed) {
 Wolf.prototype = new Animal();
 Wolf.prototype.constructor = Wolf;
 
-function Rabbit(name, health, satiety, fatigue, speed, hide) {
+function Rabbit(name, isHealth, isSatiety, isFatigue, speed, isHide) {
 
-    Animal.call(this, name, health, satiety, fatigue, speed);
+    Animal.call(this, name, isHealth, isSatiety, isFatigue, speed);
 
-    this.hide = hide;
+    this.isHide = isHide;
 
     this.jump = function () {
         console.log(this.name + " is jumping!");
@@ -60,7 +59,28 @@ function Rabbit(name, health, satiety, fatigue, speed, hide) {
 Rabbit.prototype = new Animal();
 Rabbit.prototype.constructor = Rabbit;
 
-var rabbit = new Rabbit("Roger", true, true, false, 100, false); 
+var rabbit = new Rabbit("Roger", true, true, false, 100, false);
 rabbit.jump();
 var wolf = new Wolf("Wolf", true, false, false, 100);
 wolf.eat(rabbit);
+
+//Hamster
+function Hamster(food) {
+
+    this.food = [];
+
+    this.found = function (something) {
+        this.food.push(something);
+    };
+}
+
+var speedy = new Hamster();
+var lazy = new Hamster();
+
+speedy.found("яблоко");
+speedy.found("орех");
+
+console.log(speedy.food.length);
+console.log(lazy.food.length);
+
+
