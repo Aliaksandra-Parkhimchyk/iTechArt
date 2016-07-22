@@ -69,6 +69,7 @@ function Hamster(food) {
 
     this.food = [];
 
+    // Это можно было не переносить в конструктор
     this.found = function (something) {
         this.food.push(something);
     };
