@@ -50,25 +50,18 @@ console.log(dateDisplayFormatter.func4('20130431', 'YYYYMMDD', 'MM-DD-YYYY'));
 console.log(dateDisplayFormatter.func5('2013-04-31', 'YYYY-MM-DD'));
 
 
-
 var textFormatter = {
 
-    /*
-     ��� �� ����� ���� ����� ������ ����������� �� ������ �� N ��������, �� � ������ ����,
-     ������ ���� ��������� ����� � N ��������, ����� ��������� ����� ���� ��� �� ����� ������
-      */
     byWord: function (str) {
         return str.replace(' ', '\n');
     },
 
-    // ��� �� ����� ���� ����� ������ ����������� �� ������ �� N ��������
     bySymbol: function (str, n) {
         var strSplit = str.split('');
         strSplit.splice(2, 0, '\n');
         return strSplit.join('');
     },
 
-    // ��� ����� ��� ����� ��� ����������� �� N ��������, ������ ����� ������� �������.
     bySentence: function (str) {
         var strSplit = str.split('.');
         var a = '';
@@ -90,22 +83,20 @@ console.log(textFormatter.byNo('abcdef'));
 
 var stringCalculator = {
 
-    // ��� �� �������� ����� �������� Number() �� parseInt(), ��� ������� ������?
-
     addition: function (str1, str2) {
-        return Number(str1) + Number(str2);
+        return parseInt(str1) + parseInt(str2);
     },
 
     subtraction: function (str1, str2) {
-        return Number(str1) - Number(str2);
+        return parseInt(str1) - parseInt(str2);
     },
 
     multiplication: function (str1, str2) {
-        return Number(str1) * Number(str2);
+        return parseInt(str1) * parseInt(str2);
     },
 
     division: function (str1, str2) {
-        return Number(str1) / Number(str2);
+        return parseInt(str1) / parseInt(str2);
     }
 };
 

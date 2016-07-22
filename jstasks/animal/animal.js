@@ -11,16 +11,16 @@ function Animal(name, isHealth, isSatiety, isFatigue, speed) {
     this.speed = speed;
 
     this.eat = function () {
-        console.log(this.name + " is eating!");
+        console.log(this.name + ' is eating!');
         this.satiety = true;
     };
 
     this.run = function () {
-        console.log(this.name + " is running!");
+        console.log(this.name + ' is running!');
     };
 
     this.sleep = function () {
-        console.log(this.name + " is sleeping!");
+        console.log(this.name + ' is sleeping!');
     };
 }
 
@@ -30,15 +30,15 @@ function Wolf(name, isHealth, isSatiety, isFatigue, speed) {
 
     this.eat = function (rabbit) {
         if (rabbit.hide) {
-            console.log("I am hungry!");
+            console.log('I am hungry!');
         } else {
-            console.log("Wolf is full! " + rabbit.name + " is very tasty!");
+            console.log('Wolf is full! ' + rabbit.name + ' is very tasty!');
             this.satiety = true;
         }
     };
 
     this.howl = function () {
-        console.log(this.name + "is howling!");
+        console.log(this.name + ' is howling!');
     };
 }
 
@@ -52,16 +52,16 @@ function Rabbit(name, isHealth, isSatiety, isFatigue, speed, isHide) {
     this.isHide = isHide;
 
     this.jump = function () {
-        console.log(this.name + " is jumping!");
+        console.log(this.name + ' is jumping!');
     };
 }
 
 Rabbit.prototype = new Animal();
 Rabbit.prototype.constructor = Rabbit;
 
-var rabbit = new Rabbit("Roger", true, true, false, 100, false);
+var rabbit = new Rabbit('Roger', true, true, false, 100, false);
 rabbit.jump();
-var wolf = new Wolf("Wolf", true, false, false, 100);
+var wolf = new Wolf('Wolf', true, false, false, 100);
 wolf.eat(rabbit);
 
 //Hamster
@@ -72,14 +72,14 @@ function Hamster(food) {
     // Это можно было не переносить в конструктор
     this.found = function (something) {
         this.food.push(something);
-    };
+    }
 }
 
 var speedy = new Hamster();
 var lazy = new Hamster();
 
-speedy.found("яблоко");
-speedy.found("орех");
+speedy.found('яблоко');
+speedy.found('орех');
 
 console.log(speedy.food.length);
 console.log(lazy.food.length);
