@@ -5,10 +5,28 @@ var dateDisplayFormatter = {
         strSplit.splice(2, 0, '-');
         strSplit.splice(5, 0, '-');
         return strSplit.join('');
+    },
+
+    func2: function (str) {
+        var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        var strSplit = str.split('');
+        strSplit.splice(2, 2, ' ' + months[Number(strSplit[2] + strSplit[3]) - 1] + ' ');
+        return strSplit.join('');
+    },
+
+    func3: function (str, format) {
+        var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        var strSplit = str.split('');
+        strSplit.splice(4, 2, ' ' + months[Number(strSplit[4] + strSplit[5]) - 1] + ' ');
+        strSplit.splice(0, 0, strSplit[strSplit.length - 2] + strSplit[strSplit.length - 1] + strSplit[strSplit.length - 3]);
+        delete strSplit[strSplit.length - 1] + strSplit[strSplit.length - 2] + strSplit[strSplit.length - 3];
+        return strSplit.join('');
     }
 };
 
 console.log(dateDisplayFormatter.func1('31102011'));
+console.log(dateDisplayFormatter.func2('31102011'));
+console.log(dateDisplayFormatter.func3('20130431', 'YYYYMMDD'));
 
 var textFormatter = {
 
@@ -25,8 +43,8 @@ var textFormatter = {
     bySentence: function (str) {
         var strSplit = str.split('.');
         var a = '';
-        for(var i = 0; i < strSplit.length - 1; i += 1) {
-            a += strSplit[i]  + '.' + '\n';
+        for (var i = 0; i < strSplit.length - 1; i += 1) {
+            a += strSplit[i] + '.' + '\n';
         }
         return a;
     },
