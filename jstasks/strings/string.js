@@ -1,5 +1,7 @@
 var dateDisplayFormatter = {
 
+    months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+
     func1: function (str) {
         var strSplit = str.split('');
         strSplit.splice(2, 0, '-');
@@ -8,44 +10,65 @@ var dateDisplayFormatter = {
     },
 
     func2: function (str) {
-        var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
         var strSplit = str.split('');
-        strSplit.splice(2, 2, ' ' + months[Number(strSplit[2] + strSplit[3]) - 1] + ' ');
+        strSplit.splice(2, 2, ' ' + this.months[Number(strSplit[2] + strSplit[3]) - 1] + ' ');
         return strSplit.join('');
     },
 
-    func3: function (str, format) {
-        var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    func3: function (str, fromFormat) {
         var strSplit = str.split('');
-        strSplit.splice(4, 2, ' ' + months[Number(strSplit[4] + strSplit[5]) - 1] + ' ');
+        strSplit.splice(4, 2, ' ' + this.months[Number(strSplit[4] + strSplit[5]) - 1] + ' ');
         strSplit.splice(0, 0, strSplit[strSplit.length - 2] + strSplit[strSplit.length - 1] + strSplit[strSplit.length - 3]);
-        delete strSplit[strSplit.length - 1] + strSplit[strSplit.length - 2] + strSplit[strSplit.length - 3];
+        delete strSplit[strSplit.length - 1];
+        delete strSplit[strSplit.length - 2];
+        delete strSplit[strSplit.length - 3];
         return strSplit.join('');
+    },
+
+    func4: function (str, fromFormat, toFormat) {
+        var strSplit = str.split('');
+        strSplit.splice(0, 0, strSplit[strSplit.length - 2] + strSplit[strSplit.length - 1]);
+        strSplit.splice(0, 0, strSplit[strSplit.length - 4] + strSplit[strSplit.length - 3]);
+        delete strSplit[strSplit.length - 1];
+        delete strSplit[strSplit.length - 2];
+        delete strSplit[strSplit.length - 3];
+        delete strSplit[strSplit.length - 4];
+        strSplit.splice(1, 0, '-');
+        strSplit.splice(3, 0, '-');
+        return strSplit.join('');
+    },
+
+    func5: function (str, fromFormat) {
+        return new Date().getFullYear() - str.split('-')[0] + ' years ago';
     }
 };
 
 console.log(dateDisplayFormatter.func1('31102011'));
 console.log(dateDisplayFormatter.func2('31102011'));
 console.log(dateDisplayFormatter.func3('20130431', 'YYYYMMDD'));
+console.log(dateDisplayFormatter.func4('20130431', 'YYYYMMDD', 'MM-DD-YYYY'));
+console.log(dateDisplayFormatter.func5('2013-04-31', 'YYYY-MM-DD'));
+
+
 
 var textFormatter = {
 
     /*
-     Тут бы нужно было чтобы строка разбивалась на строки по N символов, но с учетом слов,
-     тоесть если достигнут порог в N символов, тогда следующее слово было уже на новой строке
+     пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ N пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ,
+     пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ N пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
       */
     byWord: function (str) {
         return str.replace(' ', '\n');
     },
 
-    // Тут бы нужно было чтобы строка разбивалась на строки по N символов
+    // пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ N пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     bySymbol: function (str, n) {
         var strSplit = str.split('');
         strSplit.splice(2, 0, '\n');
         return strSplit.join('');
     },
 
-    // Тут можно без учета уже ограничения на N символов, просто чтобы быстрее сделать.
+    // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ N пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
     bySentence: function (str) {
         var strSplit = str.split('.');
         var a = '';
@@ -67,7 +90,7 @@ console.log(textFormatter.byNo('abcdef'));
 
 var stringCalculator = {
 
-    // тут бы наверное лучше заменить Number() на parseInt(), как думаешь почему?
+    // пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ Number() пїЅпїЅ parseInt(), пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ?
 
     addition: function (str1, str2) {
         return Number(str1) + Number(str2);
