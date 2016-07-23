@@ -1,4 +1,4 @@
-var arrayProcessingTool = {
+﻿var arrayProcessingTool = {
 
     //a.Sub Sum (O(n^2))
     getMaxSubSum: function getMaxSubSum(array) {
@@ -161,25 +161,9 @@ var arraySorter = {
         //region Зачем этот кусок?
         var newArray = array.slice();
 
-        if (this.cash.matrix.length === 0) {
-            this.cash.matrix.push(array);
-            for (var i = 0; i < newArray.length; i += 1) {
-                var v = newArray[i];
-                var j = i - 1;
-                while (j >= 0 && newArray[j] > v) {
-                    newArray[j + 1] = newArray[j];
-                    j -= 1;
-                }
-                newArray[j + 1] = v;
-            }
-            this.cash.cacheMatrix.push(newArray);
-            return ":)" + newArray;
-        }
-        //endregion
-
         for (var i = 0; i < this.cash.matrix.length; i += 1) {
             if (this.cash.matrix[i].join() === array.join()) {
-                return "Array is taken from the cache: " + this.cash.cacheMatrix[i];
+                return 'Array is taken from the cache: ' + this.cash.cacheMatrix[i];
             }
         }
 
@@ -212,9 +196,9 @@ var binaryConverter = {
          Что-то непонятное происходит, зачем передавать число разбитым и
          потом собирать его, так в условии?
           */
-        var str = "";
+        var str = '';
         var number;
-        var decimalNumber = "";
+        var decimalNumber = '';
         var balance = [];
 
         for (var i = 0; i < array.length; i += 1) {
@@ -222,14 +206,13 @@ var binaryConverter = {
         }
 
         // ошибки не будет, но надо ставить ; всегда, тоже guidlines.
-        number = Number(str)
+        number = Number(str);
 
         // тут можно просто пушить и не юзать i, balance.push(number % 2)
         var i = 0;
         while (number > 0) {
-            balance[i] = number % 2;
+            balance.push(number % 2);
             number = Math.floor(number / 2);
-            i++;
         }
 
         // тут не мог понять как в результате сложения чисел получается строка ))), но это правильно ты сделала.
