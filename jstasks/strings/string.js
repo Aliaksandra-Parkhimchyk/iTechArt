@@ -65,16 +65,22 @@ console.log(dateDisplayFormatter.func6('2013-04-31', 'YYYY-MM-DD'));
 
 var textFormatter = {
 
+    /*
+     Тут бы нужно было чтобы строка разбивалась на строки по N символов, но с учетом слов,
+     тоесть если достигнут порог в N символов, тогда следующее слово было уже на новой строке
+      */
     byWord: function (str) {
         return str.replace(' ', '\n');
     },
 
+    // Тут бы нужно было чтобы строка разбивалась на строки по N символов
     bySymbol: function (str, n) {
         var strSplit = str.split('');
         strSplit.splice(n, 0, '\n');
         return strSplit.join('');
     },
 
+    // Тут можно без учета уже ограничения на N символов, просто чтобы быстрее сделать.
     bySentence: function (str) {
         var strSplit = str.split('.');
         var a = '';
@@ -95,6 +101,8 @@ console.log(textFormatter.bySentence('Abc.Def.'));
 console.log(textFormatter.byNo('abcdef'));
 
 var stringCalculator = {
+
+    // тут бы наверное лучше заменить Number() на parseInt(), как думаешь почему?
 
     addition: function (str1, str2) {
         return parseInt(str1) + parseInt(str2);

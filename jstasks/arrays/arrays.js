@@ -157,6 +157,8 @@ var arraySorter = {
 
     insertionSort: function (array) {
 
+
+        //region Зачем этот кусок?
         var newArray = array.slice();
 
         for (var i = 0; i < this.cash.matrix.length; i += 1) {
@@ -190,6 +192,10 @@ var binaryConverter = {
 
     conversionFromDecimalToBinary: function (array) {
 
+        /*
+         Что-то непонятное происходит, зачем передавать число разбитым и
+         потом собирать его, так в условии?
+          */
         var str = '';
         var number;
         var decimalNumber = '';
@@ -199,13 +205,17 @@ var binaryConverter = {
             str += array[i];
         }
 
+        // ошибки не будет, но надо ставить ; всегда, тоже guidlines.
         number = Number(str);
 
+        // тут можно просто пушить и не юзать i, balance.push(number % 2)
+        var i = 0;
         while (number > 0) {
             balance.push(number % 2);
             number = Math.floor(number / 2);
         }
 
+        // тут не мог понять как в результате сложения чисел получается строка ))), но это правильно ты сделала.
         for (var i = balance.length - 1; i >= 0; i -= 1) {
             decimalNumber += balance[i];
         }
@@ -215,11 +225,14 @@ var binaryConverter = {
 
     conversionFromBinaryToDecimal: function (array) {
 
+        // тут тоже хорошо бы число передавать или в этом случае строку
         var sum = 0;
 
         for (var i = 0; i < array.length; i += 1) {
             sum += array[i] * Math.pow(2, array.length - i - 1);
         }
+
+        // А как можно всю эту функцию в 1 строку записать, юзая функции JS?
 
         return sum;
     }

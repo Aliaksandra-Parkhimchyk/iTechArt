@@ -72,7 +72,11 @@ function Hamster(food) {
     // Это можно было не переносить в конструктор
     this.found = function (something) {
         this.food.push(something);
+<<<<<<< HEAD
     };
+=======
+    } // тут нада точка с запятой по гайдлайнам, почему?
+>>>>>>> 3fbe06b5e19b10f9893c7693bce1a8c629d512a6
 }
 
 var speedy = new Hamster();
