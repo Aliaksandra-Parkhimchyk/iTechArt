@@ -40,6 +40,19 @@ var dateDisplayFormatter = {
 
     func5: function (str, fromFormat) {
         return new Date().getFullYear() - str.split('-')[0] + ' years ago';
+    },
+
+    func6: function (str, fromFormat) {
+        var result = str.match('[0-9]{4}[- /.](0[1-9]|1[012])[- /.](0[1-9]|1[0-9]|2[0-9]|3[01])');
+        try{
+            if (result === null) {
+                    throw new MyError('Incorrect date format');
+            } else {
+                return new Date().getFullYear() - str.split(/[- /.]/)[0] + ' years ago';
+            }
+        } catch (e) {
+            alert('Дата введена в неверном формате')
+        }
     }
 };
 
@@ -48,7 +61,7 @@ console.log(dateDisplayFormatter.func2('31102011'));
 console.log(dateDisplayFormatter.func3('20130431', 'YYYYMMDD'));
 console.log(dateDisplayFormatter.func4('20130431', 'YYYYMMDD', 'MM-DD-YYYY'));
 console.log(dateDisplayFormatter.func5('2013-04-31', 'YYYY-MM-DD'));
-
+console.log(dateDisplayFormatter.func6('2013-04-31', 'YYYY-MM-DD'));
 
 var textFormatter = {
 
@@ -58,7 +71,7 @@ var textFormatter = {
 
     bySymbol: function (str, n) {
         var strSplit = str.split('');
-        strSplit.splice(2, 0, '\n');
+        strSplit.splice(n, 0, '\n');
         return strSplit.join('');
     },
 

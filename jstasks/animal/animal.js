@@ -72,7 +72,7 @@ function Hamster(food) {
     // Это можно было не переносить в конструктор
     this.found = function (something) {
         this.food.push(something);
-    }
+    };
 }
 
 var speedy = new Hamster();
