@@ -43,12 +43,12 @@ var dateDisplayFormatter = {
     },
 
     func6: function (str, fromFormat) {
-        var result = str.match('[0-9]{4}[- /.](0[1-9]|1[012])[- /.](0[1-9]|1[0-9]|2[0-9]|3[01])');
+        var result = str.match('([0-9]{4})[- /.](0[1-9]|1[012])[- /.](0[1-9]|1[0-9]|2[0-9]|3[01])');
         try{
             if (result === null) {
                     throw new MyError('Incorrect date format');
             } else {
-                return new Date().getFullYear() - str.split(/[- /.]/)[0] + ' years ago';
+                return new Date().getFullYear() - result[1] + ' years ago';
             }
         } catch (e) {
             alert('Дата введена в неверном формате')
