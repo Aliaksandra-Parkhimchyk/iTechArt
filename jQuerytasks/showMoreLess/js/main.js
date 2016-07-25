@@ -7,17 +7,17 @@
 
             var text = $('p').html();
             $('p').html(text.substr(0, 500));
-            $('button').html('Show more');
+            $(this).html('Show more');
 
-            $('button').click(function () {
+            $(this).click(function () {
 
                 if (status === 'less') {
                     $('p').html(text);
-                    $('button').html('Show less');
+                    $(this).html('Show less');
                     status = 'more';
                 } else if (status === 'more') {
                     $('p').html(text.substr(0, 500));
-                    $('button').html('Show more');
+                    $(this).html('Show more');
                     status = 'less'
                 }
             });
