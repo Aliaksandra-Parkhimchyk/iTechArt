@@ -1,0 +1,28 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.tabs {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.tabs ul {list-style: none;}
+
+.tabs ul li {
+    color: #222;
+    display: inline-block;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.tabs ul li.active {background: #ccc;}
+
+.tab-container {
+    background: #ccc;
+    padding: 15px;
+    display: none;
+}
+
+.tab-container.active {display: block;}

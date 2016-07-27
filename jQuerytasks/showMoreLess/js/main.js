@@ -1,5 +1,5 @@
 (function( $ ) {
-    $.fn.myPlugin = function() {
+    $.fn.showMore = function() {
 
         return this.each(function () {
 
@@ -7,10 +7,8 @@
 
             var text = $('p').html();
             $('p').html(text.substr(0, 500));
-            $(this).html('Show more');
 
             $(this).click(function () {
-
                 if (status === 'less') {
                     $('p').html(text);
                     $(this).html('Show less');
@@ -26,5 +24,5 @@
 })(jQuery);
 
 $(document).ready(function () {
-    $('button').myPlugin();
+    $('#showMore').showMore();
 });
