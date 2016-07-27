@@ -1,68 +1,95 @@
 (function ($) {
-    $.fn.tabControl = function (opts) {
 
-        // var defaults = {};
-        // var options = {};
+    $.fn.tabControl = function (options) {
 
-        return this.each(function () {
-            var tabs = this;
-            $tabs = $(tabs);
+        var methods = {
 
-            if (!tabs.initialized) {
+            init: function () {
 
-                tabs.$tabs = $(tabs);
-                tabs.$tabNavItems = tabs.$tabs.find('.tab-nav li');
-                tabs.$tabContentItems = tabs.$tabs.find('.tab-container');
+                var self = this;
 
-                // showPage(0);
+                this.$tabs = $(this);
+                this.$tabNavItems = this.$tabs.find('.tab-nav li');
+                this.$tabContentItems = this.$tabs.find('.tab-container');
 
-                // tabs.$tabNavItems.each(function (i) {
-                //     $(this).click(function () {
-                //         showPage(i);
-                //     });
-                // });
+                this.$tabNavItems.on('click.myEvent', function () {
 
-                tabs.$tabNavItems.click(function () {
-                    console.log($(this).index());
-                    showPage($(this).index());
+                    methods.showPage.call(self, $(this).index());
 
+                    if(opts.callback){
+                        opts.callback();
+                    }
                 });
 
-                tabs.initialized = true;
+                this.initialized = true;
+            },
+
+            showPage: function (i) {
+                this.$tabNavItems.removeClass('active');
+                this.$tabNavItems.eq(i).addClass('active');
+
+                this.$tabContentItems.hide();
+                this.$tabContentItems.eq(i).show();
+            },
+
+            destroy: function() {
+                this.$tabs.removeData();
+                this.$tabNavItems.removeData();
+                this.$tabContentItems.removeData();
+                this.$tabNavItems.off('click.myEvent');
+                // delete $.fn.tabControl;
             }
+        };
 
-            function showPage(i) {
-                tabs.$tabNavItems.removeClass('active');
-                tabs.$tabNavItems.eq(i).addClass('active');
+        var opts = $.extend({}, $.fn.tabControl.defaults, options);
 
-                tabs.$tabContentItems.hide();
-                tabs.$tabContentItems.eq(i).show();
+        return this.each(function () {
+
+            if (!methods.initialized) {
+                methods.init.call(this);
             }
 
             if (opts) {
 
-                if (opts.showpage) {
-                    showPage(opts.showpage);
-                }
-
-                if (opts.showpageonclick) {
-                    $('button').click(function () {
-
-                        showPage(opts.showpageonclick);
-
-                    });
+                if (opts.showPage) {
+                    methods.showPage.call(this, opts.showPage);
                 }
             }
         });
     };
+
+    $.fn.tabControl.defaults = {
+        activeTab: 0,
+        activeClass: 'active',
+        callback: null
+    };
+
 })(jQuery);
 
+$(document).on('click.myEvent', 'button', function () {
+
+    $('.tab').tabControl({
+        showPage: 4
+    });
+});
 
 $(document).ready(function () {
+
     $('.tabs').tabControl();
 
     $('.tabs').tabControl({
-        showpage: 2,
-        showpageonclick: 1
+        showPage: 3
+    });
+
+    $('.tabs').eq(0).tabControl({
+        callback: function() {
+            console.log('Click on 1');
+        }
+    });
+
+    $('.tabs').eq(1).tabControl({
+        callback: function() {
+            console.log('Click on 2');
+        }
     });
 });
