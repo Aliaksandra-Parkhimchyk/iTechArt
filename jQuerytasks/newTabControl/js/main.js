@@ -33,11 +33,12 @@
             },
 
             destroy: function() {
-                this.$tabs.removeData();
-                this.$tabNavItems.removeData();
-                this.$tabContentItems.removeData();
+
                 this.$tabNavItems.off('click.myEvent');
-                // delete $.fn.tabControl;
+
+                this.$tabs = null;
+                this.$tabNavItems = null;
+                this.$tabContentItems = null;
             }
         };
 
@@ -53,6 +54,10 @@
 
                 if (opts.showPage) {
                     methods.showPage.call(this, opts.showPage);
+                }
+
+                if (opts.destroy) {
+                    methods.destroy.call(this);
                 }
             }
         });
@@ -91,5 +96,9 @@ $(document).ready(function () {
         callback: function() {
             console.log('Click on 2');
         }
+    });
+
+    $('.tabs').eq(1).tabControl({
+        destroy: true
     });
 });
