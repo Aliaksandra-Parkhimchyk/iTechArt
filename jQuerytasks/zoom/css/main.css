@@ -1,0 +1,13 @@
+.preload {
+    position: absolute;
+    z-index: -1;
+    top: -1000px;
+    left: -1000px;
+}
+
+.zoom {
+    cursor: crosshair;
+    width: 600px;
+    height: 400px;
+    overflow: hidden;
+}

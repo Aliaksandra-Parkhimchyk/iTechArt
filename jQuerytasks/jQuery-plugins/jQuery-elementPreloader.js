@@ -1,6 +1,6 @@
 (function ($) {
 
-    $.fn.preloader = function () {
+    $.fn.preloader = function (options) {
 
         var methods = {
 
@@ -15,13 +15,21 @@
                 $(this).find('img').on('load.myEvent', function () {
                     setTimeout(function () {
                         $('.preloader').fadeOut('slow');
-                        $('img').show();
+                        $('img').show('slow');
                     }, 1000);
                 });
 
                 this.initialized = true;
+            },
+
+            destroy: function() {
+
+                $(this).find('img').off('load.myEvent');
+
             }
         };
+
+        var opts = $.extend({}, $.fn.preloader.defaults, options);
 
         return this.each(function () {
 
@@ -29,7 +37,15 @@
                 methods.init.call(this);
             }
 
+            if (opts) {
+
+                if (opts.destroy) {
+                    methods.destroy.call(this);
+                }
+            }
         });
     };
+
+    $.fn.preloader.defaults = {};
 
 })(jQuery);

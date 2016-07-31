@@ -1,8 +1,8 @@
 $(document).ready(function () {
 
-    $(window).preloader();
+    $('.zoom').zoom();
 
-    /*$(window).preloader({
+    /*$('.zoom').zoom({
         destroy: true
     });*/
 
