@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    $('.container').preloader();
+    $('.col-md-4').preloader();
 
     /*$('.container').preloader({
         destroy: true
