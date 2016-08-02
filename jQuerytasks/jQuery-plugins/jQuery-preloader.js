@@ -10,14 +10,14 @@
 
                 if (this === window) {
 
-                    $('.container').hide();
+                    $('.container').hide(); //Several containers will be hidden
 
                     methods.addPreloader.call(this);
 
-                    $(this).on('load.myEvent', function () {
+                    $(this).on('load.myEvent', function () { //.pluginName instead .myEvent
                         setTimeout(function () {
-                            $('.preloader').fadeOut('slow');
-                            $('.container').show('slow');
+                            $('.preloader').fadeOut('slow'); //Several preloaders will be hidden
+                            $('.container').show('slow'); //Several containers will be shown
                         }, 1000);
                     });
                 } else {
@@ -34,11 +34,13 @@
 
                         var oldImageSrc = $(this).attr('src');
                         var newImage = new Image();
+
                         $(newImage).on('load.myEvent', function () {
                             self.imgsLoaded++;
+
                             if (self.imgsLoaded === self.imgsQantity) {
                                 setTimeout(function () {
-                                    $('.preloader').fadeOut('slow');
+                                    $('.preloader').fadeOut('slow'); //all preloaders fade out
                                     self.imgs.show('slow');
                                 }, 1000);
                             }
@@ -51,17 +53,18 @@
             },
 
             addPreloader: function () {
+                var $el;
+
                 if (this === window) {
-                    $('body').append('<div class="preloader"><span class="dot dot1">.</span>' +
-                        '<span class="dot dot2">.</span>' +
-                        '<span class="dot dot3">.</span>' +
-                        '</div>');
+                    $el = $('body');
                 } else {
-                    $(this).append('<div class="preloader"><span class="dot dot1">.</span>' +
-                        '<span class="dot dot2">.</span>' +
-                        '<span class="dot dot3">.</span>' +
-                        '</div>');
+                    $el = $(this);
                 }
+
+                $el.append('<div class="preloader"><span class="dot dot1">.</span>' +
+                    '<span class="dot dot2">.</span>' +
+                    '<span class="dot dot3">.</span>' +
+                    '</div>');
             },
 
             destroy: function () {
