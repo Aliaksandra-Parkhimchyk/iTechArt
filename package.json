@@ -1,0 +1,30 @@
+{
+  "name": "itechart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/A1exandra/iTechArt.git"
+  },
+  "author": "a.parkhimchyk <parhimchik1995@mail.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/A1exandra/iTechArt/issues"
+  },
+  "homepage": "https://github.com/A1exandra/iTechArt#readme",
+  "devDependencies": {
+    "connect": "^3.4.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-livereload": "^3.8.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-uncss": "^1.0.6",
+    "gulp.spritesmith": "^6.2.1",
+    "serve-static": "^1.11.1"
+  }
+}
