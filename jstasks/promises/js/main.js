@@ -28,7 +28,7 @@
 
     getZip(addr1, function (r1) {
         getStores(r1, function (r2) {
-            render(r2);
+            render(r2); 
         });
     });
 

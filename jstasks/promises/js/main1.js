@@ -29,24 +29,28 @@
     };
 
     var render = function (stores) {
-        console.log(stores);
         console.log('3');
+        console.log(stores);
     };
 
     var addr1 = "blabla 1";
     var addr2 = "lollol 2";
 
+    // Параллельное выполнение
     /*Q.all([
         getZip(addr1),
         getStores(addr1)
     ]).then(function (res) {
         render(res);
+    }).catch(function () {
+        console.log('Erorr!');
     });*/
 
-    getZip(addr1).then(function(){
-        getStores(addr2).then(function(res){
-            render(res);
-        });
+    // Последовательное выполнение
+    getZip(addr1).then(getStores).then(function (res) {
+        render(res)
+    }).catch(function () {
+        console.log('Error!');
     });
 
     /*var operations = [getZip, getStores, render];
@@ -57,6 +61,8 @@
         result = result.then(f);
     });
 
-    return result;*/
+    return result.catch(function () {
+        console.log('Erorr!');
+    });*/
 
 })();
