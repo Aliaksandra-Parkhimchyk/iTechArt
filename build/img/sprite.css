@@ -1,0 +1,18 @@
+.icon-icon5 {
+  background-image: url(src/img/**/*.*);
+  background-position: 0px 0px;
+  width: 70px;
+  height: 70px;
+}
+.icon-icon6 {
+  background-image: url(src/img/**/*.*);
+  background-position: 0px -71px;
+  width: 70px;
+  height: 70px;
+}
+.icon-icon7 {
+  background-image: url(src/img/**/*.*);
+  background-position: -71px 0px;
+  width: 70px;
+  height: 70px;
+}
