@@ -15,30 +15,27 @@ var jsonlint = require('gulp-jsonlint');
 var rigger = require('gulp-rigger');
 var sass = require('gulp-sass');
 var spritesmith = require('gulp-spritesmith');
-var watch = require('gulp-watch');
 var uglify = require('gulp-uglify');
+var watch = require('gulp-watch');
 
 var path = {
     build: {
         html: 'build/',
         js: 'build/js/',
         css: 'build/css/',
-        img: 'build/img/',
-        fonts: 'build/fonts/'
+        img: 'build/img/'
     },
     src: {
         html: 'src/*.html',
         js: 'src/js/main.js',
         css: 'src/css/main.scss',
-        img: 'src/img/**/*.*',
-        fonts: 'src/fonts/**/*.*'
+        img: 'src/img/**/*.*'
     },
     watch: {
         html: 'src/**/*.html',
         js: 'src/js/**/*.js',
         css: 'src/css/**/*.scss',
-        img: 'src/img/**/*.*',
-        fonts: 'src/fonts/**/*.*'
+        img: 'src/img/**/*.*'
     }
 };
 
@@ -104,7 +101,7 @@ gulp.task('watch', function () {
     });
 });
 
-gulp.task('cacheBuster', ['html:build', 'css:build', 'js:build'], function () {
+gulp.task('cacheBuster', ['css:build', 'js:build', 'html:build'], function () {
     gulp.src(path.src.html)
         .pipe(cache_bust())
         .pipe(gulp.dest('.'));

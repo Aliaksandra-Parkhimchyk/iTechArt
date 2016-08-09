@@ -19,7 +19,6 @@
   "devDependencies": {
     "connect": "^3.4.1",
     "gulp": "^3.9.1",
-    "gulp-autopolyfiller": "^1.2.1",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-cache-bust": "^1.0.2",
     "gulp-csscomb": "^3.0.7",
@@ -38,8 +37,7 @@
     "gulp-spritesmith": "0.0.2",
     "gulp-uglify": "^2.0.0",
     "gulp-watch": "^4.3.9",
-    "jshint": "^2.9.2",
-    "rimraf": "^2.5.4"
+    "jshint": "^2.9.2"
   },
   "dependencies": {
     "imagemin-pngquant": "^5.0.0"

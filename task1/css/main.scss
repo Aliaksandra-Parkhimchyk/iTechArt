@@ -154,10 +154,10 @@ a.logo {
 .advantage_icon {
 
 	.item_body h2 {
-		@include font($color-main, 21px, 400, 23px, 0.9px);
-		font-family: 'Fjalla One', sans-serif;
-		text-transform: uppercase;
-		margin-bottom: 18px;
+			@include font($color-main, 21px, 400, 23px, 0.9px);
+			font-family: 'Fjalla One', sans-serif;
+			text-transform: uppercase;
+			margin-bottom: 18px;
 		}
 
 		.circle {

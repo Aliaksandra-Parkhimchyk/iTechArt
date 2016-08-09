@@ -83,5 +83,3 @@ speedy.found('орех');
 
 console.log(speedy.food.length);
 console.log(lazy.food.length);
-
-
