@@ -11,288 +11,786 @@ $color-white: #ffffff;
 $color-font: #767c7e;
 
 @mixin font($color, $size, $weight, $line-height, $letter-spacing) {
-	color: $color;
-	font-size: $size;
-	font-weight: $weight;
-	line-height: $line-height;
-	letter-spacing: $letter-spacing;
+  color: $color;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.application {
+  position: relative;
+  min-height: 100%;
 }
 
 .header {
-	background: $color-main;
+  background: $color-main;
+}
+
+.wr-slider {
+  background: url('../img/bg-slider.jpg') 0 0 no-repeat;
+  background-size: cover;
+  padding: 242px 0 56px 0;
 }
 
 .wr-advantages {
-	background: $color-white;
-	padding: 79px 0 63px 0;
+  background: $color-white;
+  padding: 79px 0 200px 0;
 }
 
+.wr-content {padding: 80px 0 300px 0;}
+
 .footer {
-	background: $color-main;
-	padding: 75px 0;	
+  background: $color-main;
+  padding: 75px 0;
+
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 
 a.logo {
-	@include font($color-grey, 25px, 400, 28px, 0);
-	font-family: 'Fjalla One', sans-serif;
-	display: block;
-	text-transform: uppercase;
-	padding: 25px 0;
+  @include font($color-grey, 25px, 400, 28px, 0);
+  font-family: 'Fjalla One', sans-serif;
+  display: block;
+  text-transform: uppercase;
+  padding: 25px 0;
 }
 
 .header_nav {
 
-	ul {
-		float: right;
-		font-size: 0;
-		list-style: none;
-		
-		li {
-			display: inline-block;
-			font-size: 0;	
-			
-			a {
-				@include font($color-grey, 13px, 400, 15px, 0.5px);
-				display: block;
-				font-family: 'Fjalla One', sans-serif;
-				text-transform: uppercase;
-				padding: 31px 23px;
-				text-decoration: none;
-			}
+  ul {
+    float: right;
+    font-size: 0;
+    list-style: none;
 
-			&:hover,
-			&.active {
+    li {
+      display: inline-block;
+      font-size: 0;
 
-				a {background: $color-orange;}
-			}
-		}
-	}
-}
+      a {
+        @include font($color-grey, 13px, 400, 15px, 0.5px);
+        display: block;
+        font-family: 'Fjalla One', sans-serif;
+        text-transform: uppercase;
+        padding: 31px 23px;
+        text-decoration: none;
 
-.wr-advantages .container .row {
-	padding-bottom: 50px;
+        &.active {
+          background: $color-orange;
+        }
+      }
+    }
+  }
 }
 
 .size {
 
-	h3 {
-		@include font($color-main, 21px, 400, 23px, 0.9px);
-		font-family: 'Fjalla One', sans-serif;
-		text-transform: uppercase;
-		margin-bottom: 18px;
-	}
+  h3 {
+    @include font($color-main, 21px, 400, 23px, 0.9px);
+    font-family: 'Fjalla One', sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
 
-	input {
+  input {
 
-	}
+  }
 }
 
 .ingridients {
 
-	h3 {
-		@include font($color-main, 21px, 400, 23px, 0.9px);
-		font-family: 'Fjalla One', sans-serif;
-		text-transform: uppercase;
-		margin-bottom: 18px;
-	}
+  h3 {
+    @include font($color-main, 21px, 400, 23px, 0.9px);
+    font-family: 'Fjalla One', sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
 
-	input {
+  input {
 
-	}
+  }
 }
 
-.price {
+.price,
+.search {
 
-	h3 {
-		@include font($color-main, 21px, 400, 23px, 0.9px);
-		font-family: 'Fjalla One', sans-serif;
-		text-transform: uppercase;
-		margin-bottom: 18px;
-	}
+  h3 {
+    @include font($color-main, 21px, 400, 23px, 0.9px);
+    font-family: 'Fjalla One', sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
 
-	input {
-		border-radius: 20px;
-		@include font(#9faaad, 14px, 400, 17px, 0);
-		font-family: 'Lato', sans-serif;
-		font-style: italic;
-		width: 100px;
-		height: 40px;
-		padding-left: 20px;
-	}
+  input {
+    border-radius: 20px;
+    @include font(#9faaad, 14px, 400, 17px, 0);
+    font-family: 'Lato', sans-serif;
+    font-style: italic;
+    width: 100px;
+    height: 40px;
+    padding-left: 20px;
+  }
 }
 
 .cart {
 
-	h3 {
-		@include font($color-main, 21px, 400, 23px, 0.9px);
-		font-family: 'Fjalla One', sans-serif;
-		text-transform: uppercase;
-		margin-bottom: 18px;
-	}
+  h3 {
+    @include font($color-main, 21px, 400, 23px, 0.9px);
+    font-family: 'Fjalla One', sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
 
-	button {
-		background: $color-orange;
-		border: none;
-		border-radius: 20px;
-		@include font($color-white, 14px, 400, 30px, -1px);
-		display: block;
-		font-family: 'Oswald', sans-serif;
-		text-transform: uppercase;
-		width: 100px;
-		height: 37px;
-	}
+  a, button {
+    background: $color-orange;
+    border: none;
+    border-radius: 20px;
+    @include font($color-white, 14px, 400, 30px, -1px);
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    width: 100px;
+    height: 37px;
+
+    &.remove {
+      background: $color-grey;
+      border-radius: 50%;
+      color: $color-font;
+      display: inline;
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  a {
+    display: block;
+  }
+
+  p.total {
+    @include font($color-orange, 20px, 400, 23px, 0.1px);
+    font-family: 'Lato', sans-serif;
+    word-spacing: 0.1px;
+  }
 }
 
-.pizza {
+.catalog {
 
-	p {
-		@include font($color-orange, 20px, 400, 23px, 0.1px);
-		font-family: 'Lato', sans-serif;
-		word-spacing: 0.1px;
-		padding-bottom: 50px;
-	}
+  padding-top: 50px;
 
-	img {padding-bottom: 50px;}
+  .pizza {
 
-	button {
-		background: $color-orange;
-		border: none;
-		border-radius: 20px;
-		@include font($color-white, 14px, 400, 30px, -1px);
-		display: block;
-		font-family: 'Oswald', sans-serif;
-		text-transform: uppercase;
-		width: 70px;
-		height: 37px;
-	}
+    h3 {
+      @include font($color-orange, 20px, 400, 23px, 0.1px);
+      font-family: 'Lato', sans-serif;
+      word-spacing: 0.1px;
+    }
+
+    button {
+      background: $color-orange;
+      border: none;
+      border-radius: 20px;
+      @include font($color-white, 14px, 400, 30px, -1px);
+      display: block;
+      font-family: 'Oswald', sans-serif;
+      text-transform: uppercase;
+      width: 70px;
+      height: 37px;
+      margin-bottom: 50px;
+    }
+  }
+}
+
+.item_slider {
+
+  .arrows {
+    margin-bottom: 16px;
+
+    .semicircle {
+      overflow: hidden;
+      display: inline-block;
+      position: relative;
+      height: 120px;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 120px;
+        border-radius: 100%;
+        background: $color-orange;
+      }
+    }
+
+    .semicircle-left,
+    .semicircle-right {
+
+      i {
+        font-size: 30px;
+        position: absolute;
+        top: 45px;
+        left: 25px;
+      }
+    }
+
+    .semicircle-left:before {
+      left: 0;
+    }
+
+    .semicircle-right:before {
+      right: 0;
+    }
+
+    .c2 {
+      width: 60px;
+    }
+  }
+
+  .line {
+
+    h1 {
+      @include font($color-grey, 31px, 400, 48px, 2.5px);
+      font-family: 'Fjalla One', sans-serif;
+      text-transform: uppercase;
+      position: relative;
+
+      &:first-child:after {
+        content: '';
+        display: block;
+        width: 252px;
+        height: 2px;
+        top: 20px;
+        right: 100px;
+        position: absolute;
+        background: $color-grey;
+      }
+    }
+  }
+
+  a {
+    @include font($color-orange, 15px, 400, 27px, 1.2px);
+    color: $color-orange;
+    font-family: 'Fjalla One', sans-serif;
+  }
+}
+
+.advantage_icon {
+
+  .item_body h2 {
+    @include font($color-main, 21px, 400, 23px, 0.9px);
+    font-family: 'Fjalla One', sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .circle {
+    background: $color-orange;
+    width: 70px;
+    height: 70px;
+
+    i {
+      position: absolute;
+
+      &.icon-rocket {
+        top: 20px;
+        left: 20px;
+      }
+
+      &.icon-shield {
+        top: 22px;
+        left: 25px;
+      }
+
+      &.icon-fire-extinguisher {
+        top: 23px;
+        left: 23px;
+      }
+    }
+  }
+}
+
+.advantage_icon .circle,
+.orange_row .human_icon .circle,
+.item_description figure img,
+.item_contacts address i {
+  float: left;
+}
+
+.advantage_icon i,
+.orange_row .human_icon {
+  color: $color-white;
+  font-size: 30px;
+}
+
+.advantage_icon .item_body,
+.item_description figure .item_more {
+  margin-left: 100px;
+}
+
+.advantage_icon .item_body p,
+.advantage_icon .item_body a,
+.item_description figure .item_more p,
+.item_description figure .item_more a,
+.item_query .input_query p,
+.item_contacts address .item_address p,
+.item_contacts address .item_phone ul li,
+.item_contacts address .item_email_us ul li a {
+  @include font($color-font, 14px, 400, 23px, 0);
+  font-family: 'Lato', sans-serif;
+}
+
+.advantage_icon .item_body,
+.item_description figure .item_more {
+  a {
+    color: $color-orange;
+  }
+}
+
+.item_content {
+
+  h2 {
+    letter-spacing: 1.5px;
+    margin-bottom: 26px;
+  }
+
+  h3 {
+    @include font($color-orange, 20px, 400, 23px, 0.1px);
+    font-family: 'Lato', sans-serif;
+    word-spacing: 0.1px;
+    margin: -11px 0;
+  }
+}
+
+.item_content,
+.item_description,
+.item_query,
+.item_contacts {
+
+  h1 {
+    @include font($color-main, 32px, 400, 24px, 0.9px);
+    font-family: 'Fjalla One', sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+
+  h2 {
+    @include font($color-main, 21px, 400, 24px, 0.9px);
+    font-family: 'Fjalla One', sans-serif;
+    text-transform: uppercase;
+  }
+
+  p {
+    @include font($color-font, 14px, 400, 23px, 0);
+    font-family: 'Lato', sans-serif;
+    padding-bottom: 20px;
+  }
+}
+
+article {
+
+  h4 {
+    @include font($color-main, 16px, 700, 19px, 0);
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 10px;
+  }
+
+  p {
+    @include font($color-font, 14px, 400, 23px, 0);
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 38px;
+  }
+
+  button {
+    background: $color-orange;
+    border: none;
+    border-radius: 20px;
+    @include font($color-white, 14px, 400, 30px, -1px);
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    width: 70px;
+    height: 37px;
+  }
+}
+
+.orange_row {
+  background: $color-orange;
+  border-radius: 10px;
+  margin: 78px 0 70px 0;
+  padding: 47px 0 31px 15px;
+
+  .human_icon {
+
+    .circle {
+      background: $color-main;
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      position: relative;
+
+      i {
+        position: absolute;
+        top: 20px;
+        left: 22px;
+      }
+    }
+
+    .item_blockquote {
+      margin-left: 100px;
+
+      blockquote {
+
+        p {
+          @include font($color-white, 16px, 400, 25px, 0);
+          font-family: 'Lato', sans-serif;
+        }
+
+        footer,
+        & cite {
+          @include font($color-white, 14px, 400, 20px, 0);
+          font-family: 'Lato', sans-serif;
+          font-style: italic;
+        }
+      }
+    }
+  }
+
+  .human_icon .item_blockquote,
+  .item_email {
+
+    h2 {
+      @include font($color-white, 21px, 400, 24px, 0.8px);
+      font-family: 'Fjalla One', sans-serif;
+      text-transform: uppercase;
+    }
+  }
+
+  .human_icon .item_blockquote h2 {
+    margin-bottom: 13px;
+  }
+
+  .item_email h2 {
+    margin-bottom: 27px;
+  }
+
+  .item_email {
+
+    .input_email {
+
+      input {
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+.orange_row .item_email .input_email input,
+.item_query .input_query input[type="text"],
+.item_query .input_query input[type="email"],
+.item_query .input_query input[type="tel"],
+.item_query .input_query textarea {
+  border: none;
+  border-radius: 20px;
+  @include font(#9faaad, 14px, 400, 17px, 0);
+  font-family: 'Lato', sans-serif;
+  font-style: italic;
+  width: 380px;
+  height: 40px;
+  padding-left: 20px;
+}
+
+.orange_row .item_email .input_email,
+.item_query .input_query {
+
+  button {
+    background: $color-main;
+    border: none;
+    border-radius: 20px;
+    @include font($color-white, 15px, 400, 18px, 0);
+    font-family: 'Fjalla One', sans-serif;
+    text-transform: uppercase;
+    width: 120px;
+    height: 40px;
+    position: relative;
+    padding-right: 20px;
+  }
+}
+
+.item_description {
+
+  figure {
+    margin-top: 25px;
+
+    .slidebar {
+      padding: 10px 0;
+
+      .item_more {
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+.item_query {
+
+  .input_query {
+    background: $color-grey;
+    border-radius: 5px;
+    margin-top: 25px;
+    padding: 25px 30px;
+
+
+
+    p {
+      margin-bottom: 27px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"] {
+      width: 100%;
+      height: 40px;
+      margin-bottom: 20px;
+    }
+
+    textarea {
+      border-radius: 10px;
+      width: 100%;
+      height: 85px;
+      padding-top: 12px;
+      margin-bottom: 18px;
+      max-width: 100%;
+    }
+
+    h3 {
+      @include font($color-main, 16px, 400, 23px, 0.9px);
+      font-family: 'Fjalla One', sans-serif;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    button {
+      background: $color-orange;
+      width: 100px;
+      position: relative;
+    }
+  }
+}
+
+/*.orange_row .item_email .input_email button:after,
+.item_query .input_query button:after {
+	content: '';
+	display: block;
+	width: 15px;
+	height:7px;
+	background: url(../img/arrow3.png) 0 0 no-repeat;
+	position: absolute;
+	top: 15px;
+	right: 10px;
+}*/
+
+.item_contacts {
+
+  address {
+
+    margin-top: 25px;
+
+    .slidebar {
+      padding: 10px 0 20px 0;
+
+      .item_address,
+      .item_phone,
+      .item_email_us {
+        margin-top: -5px;
+        margin-left: 50px;
+
+        h4 {
+          @include font($color-orange, 14px, 900, 17px, 0);
+          font-family: 'Lato', sans-serif;
+        }
+      }
+    }
+
+    i {
+      font-size: 25px;
+    }
+
+    .item_phone ul {
+    }
+
+    .item_email_us ul {
+    }
+
+    .item_email_us ul li {
+    }
+  }
 }
 
 .footer_nav {
-	margin-bottom: 12px;
-	
-	ul {
-		list-style: none;
-		
-		li {
-			display: inline-block;
-			margin-right: 18px;
-			
-			&:after {
-				content: '';
-				display: inline-block;
-				width: 20px;
-				height: 10px;
-				background: url(../img/icon11.png) 15px 0 no-repeat;
-			}
-			
-			&:last-child:after {
-				content: '';
-				display: none;
-				margin-right: 0;
-			}
+  margin-bottom: 12px;
 
-			a {
-				@include font($color-grey, 14px, 400, 17px, 0.5px);
-				font-family: 'Lato', sans-serif;
-			}
-		}
-	}
+  ul {
+    list-style: none;
+
+    li {
+      display: inline-block;
+      margin-right: 18px;
+
+      &:after {
+        content: '';
+        display: inline-block;
+        width: 20px;
+        height: 10px;
+        background: url(../img/icon11.png) 15px 0 no-repeat;
+      }
+
+      &:last-child:after {
+        content: '';
+        display: none;
+        margin-right: 0;
+      }
+
+      a {
+        @include font($color-grey, 14px, 400, 17px, 0.5px);
+        font-family: 'Lato', sans-serif;
+      }
+    }
+  }
 }
 
 small.copyright {
-	@include font($color-font, 14px, 400, 17px, 0);
-	font-family: 'Lato', sans-serif;
-	
-	span,
-	a.design {color: $color-orange;}
+  @include font($color-font, 14px, 400, 17px, 0);
+  font-family: 'Lato', sans-serif;
 
-	a.images {color: $color-font;} 
+  span,
+  a.design {
+    color: $color-orange;
+  }
+
+  a.images {
+    color: $color-font;
+  }
 }
 
 .advantage_icon .circle,
 .footer_icons .circle {
-	background: $color-orange;
-	border-radius: 50%;
-	display: inline-block;
-	margin-right: 10px;
-	position: relative;
+  background: $color-orange;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
+  position: relative;
 }
 
 .footer_icons {
 
-	.circle {
-		background: $color-orange;
-		width: 40px;
-		height: 40px;
-		margin-top: 5px;
+  .circle {
+    background: $color-orange;
+    width: 40px;
+    height: 40px;
+    margin-top: 5px;
 
-		i {
-			color: $color-white;
-			font-size: 23px;
-			position: absolute;
-			
-			&.icon-facebook {
-				top: 8px;
-				left: 12px;
-			}
+    i {
+      color: $color-white;
+      font-size: 23px;
+      position: absolute;
 
-			&.icon-twitter {
-				top: 8px;
-				left: 11px;
-			}
+      &.icon-facebook {
+        top: 8px;
+        left: 12px;
+      }
 
-			&.icon-linkedin {
-				top: 8px;
-				left: 11px;
-			}
-		}
+      &.icon-twitter {
+        top: 8px;
+        left: 11px;
+      }
 
-		&:last-child {margin-right: 0px;}
-	}
+      &.icon-linkedin {
+        top: 8px;
+        left: 11px;
+      }
+    }
+
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+}
+
+.css-form input.ng-invalid.ng-touched {
+  border: 1px solid $color-orange;
+}
+
+.css-form input.ng-valid.ng-touched {
+  border: 1px solid green;
 }
 
 @media (max-width: 480px) {
 
-	a.logo {text-align: center;}
+  a.logo {
+    text-align: center;
+  }
 
-	.header_nav ul {float: left;}
+  .header_nav ul {
+    float: left;
+  }
 
-	.header_nav ul li {display: inline;}
+  .header_nav ul li {
+    display: inline;
+  }
 
-	.item_slider .line h1:first-child:after {display: none;}
+  .item_slider .line h1:first-child:after {
+    display: none;
+  }
 
-	.advantage_icon {margin-bottom: 20px;}
+  .advantage_icon {
+    margin-bottom: 20px;
+  }
 
-	article button {margin-bottom: 38px;}
+  article button {
+    margin-bottom: 38px;
+  }
 
-	.orange_row .item_email .input_email input,
-	.item_query .input_query input,
-	.item_query .input_query textarea {
-		width: 225px;
-		margin-bottom: 20px;
-	}
+  .orange_row .item_email .input_email input,
+  .item_query .input_query input,
+  .item_query .input_query textarea {
+    width: 225px;
+    margin-bottom: 20px;
+  }
 
-	.footer_icons .circle {margin-right: 0px;}
+  .footer_icons .circle {
+    margin-right: 0px;
+  }
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
 
-	a.logo {text-align: center;}
+  a.logo {
+    text-align: center;
+  }
 
-	.header_nav ul {float: left;}
+  .header_nav ul {
+    float: left;
+  }
 
-	.item_slider .line h1:first-child:after {display: none;}
+  .item_slider .line h1:first-child:after {
+    display: none;
+  }
 }
 
 @media (min-width: 768px) {
 
-	/*.header_nav ul li a {padding: 31px 15px;}
+  /*.header_nav ul li a {padding: 31px 15px;}
 
-	.orange_row .item_email .input_email input {margin-bottom: 20px;}
+  .orange_row .item_email .input_email input {margin-bottom: 20px;}
 
-	.item_query .input_query input,
-	.item_query .input_query textarea {
-		width: 225px;
-		margin-bottom: 20px;
-	}*/
+  .item_query .input_query input,
+  .item_query .input_query textarea {
+      width: 225px;
+      margin-bottom: 20px;
+  }*/
 }

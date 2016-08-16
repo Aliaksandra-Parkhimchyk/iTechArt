@@ -1,0 +1,95 @@
+[
+  {
+    "title": "Pepperoni1",
+    "size": "big",
+    "price": 9.99,
+    "ingridients": [
+      "pepper",
+      "beaf",
+      "chicken"
+    ],
+    "src": "http://www.pizzatempo.by/i/photo/catalog/products/t/r_63_248x248.jpg",
+    "num": 1
+  },
+  {
+    "title": "Pepperoni2",
+    "size": "small",
+    "price": 4.99,
+    "ingridients": [
+      "beaf",
+      "chicken"
+    ],
+    "src": "http://www.pizzatempo.by/i/photo/catalog/products/t/r_8_248x248.jpg",
+    "num": 1
+  },
+  {
+    "title": "Pepperoni3",
+    "size": "big",
+    "price": 9.99,
+    "ingridients": [
+      "chicken"
+    ],
+    "src": "http://www.pizzatempo.by/i/photo/catalog/products/t/r_94_248x248.jpg",
+    "num": 1
+  },
+  {
+    "title": "Pepperoni4",
+    "size": "small",
+    "price": 4.99,
+    "ingridients": [
+      "chicken"
+    ],
+    "src": "http://www.pizzatempo.by/i/photo/catalog/products/t/r_7_248x248.jpg",
+    "num": 1
+  },
+  {
+    "title": "Pepperoni5",
+    "size": "big",
+    "price": 9.99,
+    "ingridients": [
+      "chicken"
+    ],
+    "src": "http://www.pizzatempo.by/i/photo/catalog/products/t/r_83_248x248.jpg",
+    "num": 1
+  },
+  {
+    "title": "Pepperoni6",
+    "size": "small",
+    "price": 4.99,
+    "ingridients": [
+      "chicken"
+    ],
+    "src": "http://www.pizzatempo.by/i/photo/catalog/products/t/r_59_248x248.jpg",
+    "num": 1
+  },
+  {
+    "title": "Pepperoni7",
+    "size": "big",
+    "price": 9.99,
+    "ingridients": [
+      "chicken"
+    ],
+    "src": "http://www.pizzatempo.by/i/photo/catalog/products/t/r_19_248x248.jpg",
+    "num": 1
+  },
+  {
+    "title": "Pepperoni8",
+    "size": "small",
+    "price": 4.99,
+    "ingridients": [
+      "chicken"
+    ],
+    "src": "http://www.pizzatempo.by/i/photo/catalog/products/t/r_37_248x248.jpg",
+    "num": 1
+  },
+  {
+    "title": "Pepperoni9",
+    "size": "big",
+    "price": 9.99,
+    "ingridients": [
+      "chicken"
+    ],
+    "src": "http://www.pizzatempo.by/i/photo/catalog/products/t/r_89_248x248.jpg",
+    "num": 1
+  }
+]

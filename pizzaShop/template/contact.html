@@ -1,0 +1,22 @@
+<section class="wr-content" ng-controller="ContactCtrl">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="item_query">
+                    <h2>Nunc dignissim risu</h2>
+                    <form class="input_query css-form" name="form" novalidate>
+                        <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus liber</p>
+                        <input type="text" class="form-control" name="name" placeholder="name ..." ng-model="name" ng-pattern="regexName" required>
+                        <input type="email" class="form-control" name="email" placeholder="email ..." ng-model="email" ng-pattern="regexEmail" required>
+                        <textarea rows="3" class="form-control" placeholder="your query ..."></textarea>
+                        <button type="submit" class="btn" ng-disabled="form.$invalid">
+                            send
+                            <span class="glyphicon glyphicon-arrow-right"></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-4" ng-include="templates.url"></div>
+        </div>
+    </div>
+</section>

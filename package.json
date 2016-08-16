@@ -36,8 +36,7 @@
     "gulp-sass": "^2.3.2",
     "gulp-spritesmith": "0.0.2",
     "gulp-uglify": "^2.0.0",
-    "gulp-watch": "^4.3.9",
-    "jshint": "^2.9.2"
+    "gulp-watch": "^4.3.9"
   },
   "dependencies": {
     "imagemin-pngquant": "^5.0.0"

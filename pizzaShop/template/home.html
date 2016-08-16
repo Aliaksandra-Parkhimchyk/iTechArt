@@ -1,0 +1,69 @@
+<section class="wr-advantages" ng-controller="HomeCtrl">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="size">
+                    <h3>Size:</h3>
+                    <label><input type="radio" ng-model="size" value="Small">Small</label><br>
+                    <label><input type="radio" ng-model="size" value="Big">Big</label>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="ingridients">
+                    <h3>Ingridients:</h3>
+                    <label><input type="checkbox" ng-model="ingridientsChosen.pepper">Pepper</label><br>
+                    <label><input type="checkbox" ng-model="ingridientsChosen.beaf">Beaf</label><br>
+                    <label><input type="checkbox" ng-model="ingridientsChosen.chicken">Chicken</label>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="price">
+                    <h3>Price:</h3>
+                    <label>From<input type="text" placeholder="From" ng-model="from"></label><br>
+                    <label>To<input type="text" placeholder="To" ng-model="to"></label>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="search">
+                    <form class="input_query css-form" name="form" novalidate>
+                        <h3>Search:</h3>
+                        <input type="search" placeholder="Search" ng-model="search">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row catalog">
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-4"
+                         ng-repeat="item in products | filter:{title:search, size: size} | filter: filterPrice(from, to) | filter: filterIngridients(ingridientsChosen)">
+                        <div class="pizza">
+                            <h3>{{item.title}}</h3>
+                            <img ng-src={{item.src}} alt="">
+                            <form name="form" novalidate>
+                                <input type="number" name="size" ng-model="item.num" min="1" max="10" value="1" integer><br>
+                                    <!--<span ng-show="form.size.$error.integer">The value is not a valid integer!</span>-->
+                                <span ng-show="form.size.$error.min || form.size.$error.max">The value must be in range 0 to 10!</span>
+                            </form>
+                            <button class="btn" ng-click="addItem(item)">Order</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="cart" ng-show="carts.length > 0">
+                    <h3>Your cart</h3>
+                    <p>All goods: {{carts.length}}</p>
+                    <div ng-repeat="item in carts">
+                        <button class="remove" ng-click="removeItem(carts,item)">X</button>
+                        {{item.title}} * {{item.num}}= {{item.price * item.num | currency}}
+                    </div>
+                    <p class="total">Total: {{total() | currency}}</p>
+                    <!--<button>Checkout</button>-->
+                    <a class="btn" href="/checkout" role="button">Checkout</a>
+                </div>
+                <div ng-include="templates.url"></div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,22 @@
+{
+  "name": "iTechArt",
+  "homepage": "https://github.com/A1exandra/iTechArt",
+  "authors": [
+    "a.parkhimchyk <parhimchik1995@mail.ru>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.0",
+    "q": "^2.0.2",
+    "bootstrap": "^3.3.7"
+  }
+}

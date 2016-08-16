@@ -1,0 +1,47 @@
+<section class="wr-content" ng-controller="CheckoutCtrl">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-1">
+                <div class="item_query">
+                    <h2>Nunc dignissim risu</h2>
+                    <form class="input_query css-form" name="form" novalidate>
+                        <input type="text" class="form-control" name="name" placeholder="name ..." ng-model="name" ng-pattern="regexName" required>
+                        <!--<span ng-show="form.name.$error.required">Имя пользователя обязательно.</span>-->
+                        <input type="email" class="form-control" name="email" placeholder="email ..." ng-model="email" ng-pattern="regexEmail" required>
+                        <!--<span ng-show="form.email.$error.required">Email обязателен.</span>-->
+                        <input type="tel" class="form-control" name="phone" placeholder="phone ..." ng-model="phone" required>
+                        <input type="text" class="form-control" name="city" placeholder="city ..." ng-model="city" ng-pattern="regexLetters" required>
+                        <input type="text" class="form-control" name="street" placeholder="street ..." ng-model="street" ng-pattern="regexLetters" required>
+                        <input type="text" class="form-control" name="house" placeholder="house ..." ng-model="house" ng-pattern="regexNumber" required>
+                        <input type="text" class="form-control" name="apartment" placeholder="apartment ..." ng-model="apartment" ng-pattern="regexNumber" required>
+                        <input type="text" class="form-control" placeholder="access ...">
+                        <input type="text" class="form-control" placeholder="floor ...">
+                        <textarea rows="3" class="form-control" placeholder="additional information ..."></textarea>
+                        <h3>Payment option:</h3>
+                        <label><input type="radio" ng-model="option" value="1">Through the Internet</label><br>
+                        <label><input type="radio" ng-model="option" value="2">Cash to the courier</label><br>
+                        <label><input type="radio" ng-model="option" value="3">Card to the courier</label><br>
+                        <label><input type="checkbox">Cut pizza</label><br>
+                        <button type="submit" class="btn" ng-disabled="form.$invalid">
+                            send
+                            <span class="glyphicon glyphicon-arrow-right"></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="cart" ng-show="carts.length > 0">
+                    <h3>Your cart</h3>
+                    <p>All goods: {{carts.length}}</p>
+                    <div ng-repeat="item in carts">
+                        <button class="remove" ng-click="removeItem(carts,item)">X</button>
+                        {{item.title}} * {{item.num}}= {{item.price * item.num | currency}}
+                    </div>
+                    <p class="total">Total: {{total() | currency}}</p>
+                </div>
+                <div ng-include="templates.url"></div>
+            </div>
+        </div>
+    </div>
+</section>
