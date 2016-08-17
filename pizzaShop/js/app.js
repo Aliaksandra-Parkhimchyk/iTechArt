@@ -200,8 +200,18 @@ app.controller('CheckoutCtrl', function ($scope, dataHolder) {
 
     $scope.carts = dataHolder.getCarts();
 
-    $scope.addItem = function (item) {
-        dataHolder.addItem(item);
+    $scope.addItem = function (item, x) {
+
+        if(1) {
+            var a = {blabla: 'bla'};
+        }
+
+        dataHolder.addItem(item, x);
+
+        if(0) {
+            var a = {hopachki: 'hopachki'};
+        }
+
     };
 
     $scope.removeItem = function (item) {
@@ -271,6 +281,7 @@ app.directive('myContacts', function () {
     return {
         restrict: 'AEC',
         templateUrl: 'template/item_contacts.html',
+        transclude: false, // hopachki
         link: function (scope) {
             scope.tel1 = '(000) 777 777 7777';
             scope.tel2 = '(000) 888 888 8888';
