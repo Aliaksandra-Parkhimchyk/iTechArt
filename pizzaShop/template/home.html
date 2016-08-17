@@ -19,15 +19,20 @@
             <div class="col-md-3">
                 <div class="price">
                     <h3>Price:</h3>
-                    <label>From<input type="text" placeholder="From" ng-model="from"></label><br>
-                    <label>To<input type="text" placeholder="To" ng-model="to"></label>
+                    <form class="css-form" name="form" novalidate>
+                        <label>From<input type="text" placeholder="From" ng-model="from"
+                                          ng-pattern="regexPrice"></label><br>
+                        <label>To<input type="text" placeholder="To" ng-model="to" ng-pattern="regexPrice"></label>
+                    </form>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="search">
-                    <form class="input_query css-form" name="form" novalidate>
+                    <form class="css-form" name="form" novalidate>
                         <h3>Search:</h3>
-                        <input type="search" placeholder="Search" ng-model="search">
+                        <input type="search" name="search" placeholder="Search" ng-model="search"
+                               ng-pattern="regexSearch">
+                        <span ng-show="form.search.$invalid">Invalid input!</span>
                     </form>
                 </div>
             </div>
@@ -42,7 +47,7 @@
                             <img ng-src={{item.src}} alt="">
                             <form name="form" novalidate>
                                 <input type="number" name="size" ng-model="item.num" min="1" max="10" value="1" integer><br>
-                                    <!--<span ng-show="form.size.$error.integer">The value is not a valid integer!</span>-->
+                                <!--<span ng-show="form.size.$error.integer">The value is not a valid integer!</span>-->
                                 <span ng-show="form.size.$error.min || form.size.$error.max">The value must be in range 0 to 10!</span>
                             </form>
                             <button class="btn" ng-click="addItem(item)">Order</button>
@@ -62,7 +67,8 @@
                     <!--<button>Checkout</button>-->
                     <a class="btn" href="/checkout" role="button">Checkout</a>
                 </div>
-                <div ng-include="templates.url"></div>
+                <!--<div ng-include="templates.url"></div>-->
+                <my-contacts></my-contacts>
             </div>
         </div>
     </div>

@@ -41,39 +41,43 @@ app.controller('MainCtrl', function ($scope, $http, $location) {
 
 app.controller('HomeCtrl', function ($scope, $http, $location, $q, dataHolder) {
 
-    $scope.templates = {name: 'item_contacts.html', url: 'template/item_contacts.html'};
+    $scope.regexPrice = /^[0-9]*$/;
+    $scope.regexSearch = /^[A-z0-9]{0,20}$/;
+
+    /*$scope.templates = {name: 'item_contacts.html', url: 'template/item_contacts.html'};*/
 
     /*$q.all([
-        p1,
-        p2
-    ]).then();
+     p1,
+     p2
+     ]).then();
 
-    var p = $q.defer();
+     var p = $q.defer();
 
-    p.promise.then(function () {
-        console.log('resolved');
-    });
+     p.promise.then(function () {
+     console.log('resolved');
+     });
 
-    p.resolve();*/
+     p.resolve();*/
 
 
     /*$scope.ingridientsChosen = {};
 
-    setTimeout(function () {
-        $scope.$apply(function () {
-            $scope.ingridientsChosen.beaf = true;
-        });
-    }, 3000);
+     setTimeout(function () {
+     $scope.$apply(function () {
+     $scope.ingridientsChosen.beaf = true;
+     });
+     }, 3000);
 
-    $scope.$watch('search', function () {
-        console.log($scope.search);
-    });
+     $scope.$watch('search', function () {
+     console.log($scope.search);
+     });
 
-    $scope.$watchCollection('ingridientsChosen', function () {
-        console.log('asdas', $scope.ingridientsChosen);
-    });*/
+     $scope.$watchCollection('ingridientsChosen', function () {
+     console.log('asdas', $scope.ingridientsChosen);
+     });*/
 
     $http.get('products.json').success(function (data) {
+
         $scope.products = data;
 
         $scope.from = (function () {
@@ -98,31 +102,31 @@ app.controller('HomeCtrl', function ($scope, $http, $location, $q, dataHolder) {
     });
 
     /*setTimeout(function () {
-        $scope.to = 10000;
-    }, 5000);*/
+     $scope.to = 10000;
+     }, 5000);*/
 
     //$scope.carts = [];
 
     /*$scope.addItem = function (item) {
 
-        $scope.carts.push({
-            title: item.title,
-            size: item.size,
-            price: item.price
-        });
-    };*/
+     $scope.carts.push({
+     title: item.title,
+     size: item.size,
+     price: item.price
+     });
+     };*/
 
     /*$scope.removeItem = function (carts, item) {
-        carts.splice(item, 1);
-    };*/
+     carts.splice(item, 1);
+     };*/
 
     /*$scope.total = function () {
-        var total = 0;
-        angular.forEach($scope.carts, function (item) {
-            total += item.price;
-        });
-        return total;
-    };*/
+     var total = 0;
+     angular.forEach($scope.carts, function (item) {
+     total += item.price;
+     });
+     return total;
+     };*/
 
     $scope.carts = dataHolder.getCarts();
 
@@ -141,8 +145,8 @@ app.controller('HomeCtrl', function ($scope, $http, $location, $q, dataHolder) {
     $scope.filterPrice = function (minPrice, maxPrice) {
 
         /*if(minPrice < 0 || maxPrice < 0) {
-            alert('Invalid price!!!');
-        }*/
+         alert('Invalid price!!!');
+         }*/
 
         return function (item) {
             var res = true;
@@ -169,29 +173,30 @@ app.controller('HomeCtrl', function ($scope, $http, $location, $q, dataHolder) {
 });
 
 app.controller('AboutCtrl', function ($scope) {
-    $scope.templates = {name: 'item_contacts.html', url: 'template/item_contacts.html'};
+    /*$scope.templates = {name: 'item_contacts.html', url: 'template/item_contacts.html'};*/
 });
 
 app.controller('DeliveryCtrl', function ($scope) {
-    $scope.templates = {name: 'item_contacts.html', url: 'template/item_contacts.html'};
+    /*$scope.templates = {name: 'item_contacts.html', url: 'template/item_contacts.html'};*/
 });
 
 app.controller('ContactCtrl', function ($scope) {
 
-    $scope.regexName = /^[A-Za-z0-9 ]{3,20}$/;
+    $scope.regexName = /^[A-z0-9]{3,20}$/;
     $scope.regexEmail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 
-    $scope.templates = {name: 'item_contacts.html', url: 'template/item_contacts.html'};
+    /*$scope.templates = {name: 'item_contacts.html', url: 'template/item_contacts.html'};*/
 });
 
 app.controller('CheckoutCtrl', function ($scope, dataHolder) {
 
-    $scope.regexName = /^[A-Za-z0-9]{3,20}$/;
+    $scope.regexName = /^[A-z0-9]{3,20}$/;
     $scope.regexEmail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    $scope.regexPhone = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/;
     $scope.regexLetters = /^[A-z]{3,20}$/;
     $scope.regexNumber = /^[0-9]*$/;
 
-    $scope.templates = {name: 'item_contacts.html', url: 'template/item_contacts.html'};
+    /*$scope.templates = {name: 'item_contacts.html', url: 'template/item_contacts.html'};*/
 
     $scope.carts = dataHolder.getCarts();
 
@@ -212,22 +217,40 @@ app.factory('dataHolder', function () {
 
     var carts = [];
 
+    function findById(source, id) {
+        for (var i = 0; i < source.length; i++) {
+            if (source[i].id === id) {
+                return source[i];
+            }
+        }
+    }
+
     return {
 
-        getCarts: function() {
+        getCarts: function () {
             return carts;
         },
 
         addItem: function (item) {
 
-            var nums = item.num || 1;
+            /*var nums = item.num || 1;*/
 
-            carts.push({
-                title: item.title,
-                size: item.size,
-                price: item.price,
-                num : nums
-            });
+            var obj = findById(carts, item.id);
+
+            if (carts.length === 0 || !obj) {
+
+                carts.push({
+                    title: item.title,
+                    size: item.size,
+                    price: item.price,
+                    num: item.num,
+                    id: item.id
+                });
+
+            } else {
+                obj.num += item.num;
+            }
+
         },
 
         removeItem: function (carts, item) {
@@ -244,4 +267,16 @@ app.factory('dataHolder', function () {
     }
 });
 
-
+app.directive('myContacts', function () {
+    return {
+        restrict: 'AEC',
+        templateUrl: 'template/item_contacts.html',
+        link: function (scope) {
+            scope.tel1 = '(000) 777 777 7777';
+            scope.tel2 = '(000) 888 888 8888';
+            scope.mail1 = 'info@sitename.com';
+            scope.mail2 = 'sales@sitename.com';
+            scope.mail3 = 'company@sitename.com';
+        }
+    };
+});

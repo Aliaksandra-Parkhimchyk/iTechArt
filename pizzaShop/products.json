@@ -9,6 +9,7 @@
       "chicken"
     ],
     "src": "http://www.pizzatempo.by/i/photo/catalog/products/t/r_63_248x248.jpg",
+    "id": 1,
     "num": 1
   },
   {
@@ -20,6 +21,7 @@
       "chicken"
     ],
     "src": "http://www.pizzatempo.by/i/photo/catalog/products/t/r_8_248x248.jpg",
+    "id": 2,
     "num": 1
   },
   {
@@ -30,6 +32,7 @@
       "chicken"
     ],
     "src": "http://www.pizzatempo.by/i/photo/catalog/products/t/r_94_248x248.jpg",
+    "id": 3,
     "num": 1
   },
   {
@@ -40,6 +43,7 @@
       "chicken"
     ],
     "src": "http://www.pizzatempo.by/i/photo/catalog/products/t/r_7_248x248.jpg",
+    "id": 4,
     "num": 1
   },
   {
@@ -50,6 +54,7 @@
       "chicken"
     ],
     "src": "http://www.pizzatempo.by/i/photo/catalog/products/t/r_83_248x248.jpg",
+    "id": 5,
     "num": 1
   },
   {
@@ -60,6 +65,7 @@
       "chicken"
     ],
     "src": "http://www.pizzatempo.by/i/photo/catalog/products/t/r_59_248x248.jpg",
+    "id": 6,
     "num": 1
   },
   {
@@ -70,6 +76,7 @@
       "chicken"
     ],
     "src": "http://www.pizzatempo.by/i/photo/catalog/products/t/r_19_248x248.jpg",
+    "id": 7,
     "num": 1
   },
   {
@@ -80,6 +87,7 @@
       "chicken"
     ],
     "src": "http://www.pizzatempo.by/i/photo/catalog/products/t/r_37_248x248.jpg",
+    "id": 9,
     "num": 1
   },
   {
@@ -90,6 +98,7 @@
       "chicken"
     ],
     "src": "http://www.pizzatempo.by/i/photo/catalog/products/t/r_89_248x248.jpg",
+    "id": 9,
     "num": 1
   }
 ]
