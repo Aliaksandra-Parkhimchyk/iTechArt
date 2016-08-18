@@ -18,8 +18,8 @@
             </div>
             <div class="col-md-3">
                 <div class="price">
-                    <h3>Price:</h3>
-                    <form class="css-form" name="form" novalidate>
+                    <h3 ng-click="sort('price')">Price:</h3>
+                    <form name="form" novalidate>
                         <label>From<input type="text" placeholder="From" ng-model="from"
                                           ng-pattern="regexPrice"></label><br>
                         <label>To<input type="text" placeholder="To" ng-model="to" ng-pattern="regexPrice"></label>
@@ -28,7 +28,7 @@
             </div>
             <div class="col-md-3">
                 <div class="search">
-                    <form class="css-form" name="form" novalidate>
+                    <form name="form" novalidate>
                         <h3>Search:</h3>
                         <input type="search" name="search" placeholder="Search" ng-model="search"
                                ng-pattern="regexSearch">
@@ -41,7 +41,7 @@
             <div class="col-md-9">
                 <div class="row">
                     <div class="col-md-4"
-                         ng-repeat="item in products | filter:{title:search, size: size} | filter: filterPrice(from, to) | filter: filterIngridients(ingridientsChosen)">
+                         ng-repeat="item in products | filter:{title:search, size: size} | filter: filterPrice(from, to) | filter: filterIngridients(ingridientsChosen) | orderBy:sortField:reverse">
                         <div class="pizza">
                             <h3>{{item.title}}</h3>
                             <img ng-src={{item.src}} alt="">

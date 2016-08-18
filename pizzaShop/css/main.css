@@ -130,6 +130,7 @@ a.logo {
 
 .price h3,
 .search h3 {
+  cursor: pointer;
   color: #202628;
   font-size: 21px;
   font-weight: 400;

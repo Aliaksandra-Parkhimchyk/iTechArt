@@ -170,6 +170,17 @@ app.controller('HomeCtrl', function ($scope, $http, $location, $q, dataHolder) {
         };
     };
 
+    $scope.sortField = undefined;
+    $scope.reverse = false;
+
+    $scope.sort = function(fieldName) {
+        if($scope.sortField === fieldName) {
+            $scope.reverse = !$scope.reverse;
+        } else {
+            $scope.sortField = fieldName;
+            $scope.reverse = false;
+        }
+    };
 });
 
 app.controller('AboutCtrl', function ($scope) {
@@ -238,6 +249,12 @@ app.factory('dataHolder', function () {
             var obj = findById(carts, item.id);
 
             if (carts.length === 0 || !obj) {
+
+                if(1) {
+                    console.log(1);
+                } else {
+                    console.log(2);
+                }
 
                 carts.push({
                     title: item.title,
