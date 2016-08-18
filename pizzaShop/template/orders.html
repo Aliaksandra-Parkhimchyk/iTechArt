@@ -1,0 +1,16 @@
+<section class="wr-advantages" ng-controller="OrdersCtrl">
+    <div class="container">
+        <div class="row catalog">
+            <div class="col-md-3">
+                <div class="cart" ng-show="orders.length > 0">
+                    <h3>Your orders</h3>
+                    <p>All goods: {{orders.length}}</p>
+                    <div ng-repeat="item in orders">
+                        <!--<button class="remove" ng-click="removeItem(carts,item)">X</button>-->
+                        {{item.title}} * {{item.num}}= {{item.price * item.num | currency}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

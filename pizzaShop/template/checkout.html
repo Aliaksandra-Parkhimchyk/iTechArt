@@ -25,11 +25,16 @@
                         <input type="text" class="form-control" placeholder="floor ...">
                         <textarea rows="3" class="form-control" placeholder="additional information ..."></textarea>
                         <h3>Payment option:</h3>
-                        <label><input type="radio" ng-model="option" value="1">Through the Internet</label><br>
+                        <select>
+                            <option>Through the Internet</option>
+                            <option>Cash to the courier</option>
+                            <option>Card to the courier</option>
+                        </select>
+                        <!--<label><input type="radio" ng-model="option" value="1">Through the Internet</label><br>
                         <label><input type="radio" ng-model="option" value="2">Cash to the courier</label><br>
-                        <label><input type="radio" ng-model="option" value="3">Card to the courier</label><br>
+                        <label><input type="radio" ng-model="option" value="3">Card to the courier</label><br>-->
                         <label><input type="checkbox">Cut pizza</label><br>
-                        <button type="submit" class="btn" ng-disabled="form.$invalid">
+                        <button type="submit" class="btn" ng-disabled="form.$invalid"  ng-click="send()">
                             send
                             <span class="glyphicon glyphicon-arrow-right"></span>
                         </button>
@@ -48,7 +53,7 @@
                     <p class="total">Total: {{total() | currency}}</p>
                 </div>
                 <!--<div ng-include="templates.url"></div>-->
-                <div my-contacts></div>
+                <div my-contacts data-title="ALIQUAM TINCIDUNT"></div>
             </div>
         </div>
     </div>

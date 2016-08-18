@@ -28,6 +28,10 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
             templateUrl: 'template/checkout.html',
             controller: 'CheckoutCtrl'
         })
+        .when('/orders', {
+            templateUrl: 'template/orders.html',
+            controller: 'OrdersCtrl'
+        })
         .otherwise({
             redirectTo: '/'
         });
@@ -39,7 +43,7 @@ app.controller('MainCtrl', function ($scope, $http, $location) {
     }
 });
 
-app.controller('HomeCtrl', function ($scope, $http, $location, $q, dataHolder) {
+app.controller('HomeCtrl', function ($scope, $http, $location, $q, stateService) {
 
     $scope.regexPrice = /^[0-9]*$/;
     $scope.regexSearch = /^[A-z0-9]{0,20}$/;
@@ -76,7 +80,36 @@ app.controller('HomeCtrl', function ($scope, $http, $location, $q, dataHolder) {
      console.log('asdas', $scope.ingridientsChosen);
      });*/
 
-    $http.get('products.json').success(function (data) {
+    $http({
+        method: 'GET',
+        url: 'https://api.mlab.com/api/1/databases/pizzashop/collections/products?apiKey=9BGZZA0zukVJrmfAYnnLeG7V2DiUQNY_'
+    }).then(function successCallback(response) {
+
+        $scope.products = response.data;
+        $scope.from = (function () {
+            var minPrice = 100;
+            for (var i = 0; i < $scope.products.length; i += 1) {
+                if ($scope.products[i].price < minPrice) {
+                    minPrice = $scope.products[i].price;
+                }
+            }
+            return minPrice;
+        })();
+
+        $scope.to = (function () {
+            var maxPrice = 0;
+            for (var i = 0; i < $scope.products.length; i += 1) {
+                if ($scope.products[i].price > maxPrice) {
+                    maxPrice = $scope.products[i].price;
+                }
+            }
+            return maxPrice;
+        })();
+    }, function errorCallback(response) {
+        console.log('Erorr!');
+    });
+
+    /*$http.get('https://api.mlab.com/api/1/databases/pizzashop/collections/products?apiKey=9BGZZA0zukVJrmfAYnnLeG7V2DiUQNY_').success(function (data, status, headers, config) {
 
         $scope.products = data;
 
@@ -99,7 +132,8 @@ app.controller('HomeCtrl', function ($scope, $http, $location, $q, dataHolder) {
             }
             return maxPrice;
         })();
-    });
+    }).error(function () {
+    });*/
 
     /*setTimeout(function () {
      $scope.to = 10000;
@@ -128,18 +162,18 @@ app.controller('HomeCtrl', function ($scope, $http, $location, $q, dataHolder) {
      return total;
      };*/
 
-    $scope.carts = dataHolder.getCarts();
+    $scope.carts = stateService.getCarts();
 
     $scope.addItem = function (item) {
-        dataHolder.addItem(item);
+        stateService.addItem(item);
     };
 
     $scope.removeItem = function (item) {
-        dataHolder.removeItem($scope.carts, item);
+        stateService.removeItem($scope.carts, item);
     };
 
     $scope.total = function () {
-        return dataHolder.total();
+        return stateService.total();
     };
 
     $scope.filterPrice = function (minPrice, maxPrice) {
@@ -199,7 +233,7 @@ app.controller('ContactCtrl', function ($scope) {
     /*$scope.templates = {name: 'item_contacts.html', url: 'template/item_contacts.html'};*/
 });
 
-app.controller('CheckoutCtrl', function ($scope, dataHolder) {
+app.controller('CheckoutCtrl', function ($scope, stateService) {
 
     $scope.regexName = /^[A-z0-9]{3,20}$/;
     $scope.regexEmail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
@@ -209,22 +243,45 @@ app.controller('CheckoutCtrl', function ($scope, dataHolder) {
 
     /*$scope.templates = {name: 'item_contacts.html', url: 'template/item_contacts.html'};*/
 
-    $scope.carts = dataHolder.getCarts();
+    $scope.carts = stateService.getCarts();
 
     $scope.addItem = function (item) {
-        dataHolder.addItem(item);
+        stateService.addItem(item);
     };
 
     $scope.removeItem = function (item) {
-        dataHolder.removeItem($scope.carts, item);
+        stateService.removeItem($scope.carts, item);
     };
 
     $scope.total = function () {
-        return dataHolder.total();
+        return stateService.total();
+    };
+
+    $scope.send = function () {
+        return stateService.send();
     };
 });
 
-app.factory('dataHolder', function () {
+app.controller('OrdersCtrl', function ($scope, $http) {
+
+    /*$scope.templates = {name: 'item_contacts.html', url: 'template/item_contacts.html'};*/
+
+    $http({
+        method: 'GET',
+        url: 'https://api.mlab.com/api/1/databases/pizzashop/collections/orders?apiKey=9BGZZA0zukVJrmfAYnnLeG7V2DiUQNY_'
+    }).then(function successCallback(response) {
+        $scope.orders = response.data;
+    }, function errorCallback(response) {
+        console.log('Erorr!');
+    });
+
+    /*$http.get('https://api.mlab.com/api/1/databases/pizzashop/collections/orders?apiKey=9BGZZA0zukVJrmfAYnnLeG7V2DiUQNY_').success(function (data, status, headers, config) {
+        $scope.orders = response.data;
+    }).error(function () {
+    });*/
+});
+
+app.factory('stateService', function ($http) {
 
     var carts = [];
 
@@ -250,12 +307,6 @@ app.factory('dataHolder', function () {
 
             if (carts.length === 0 || !obj) {
 
-                if(1) {
-                    console.log(1);
-                } else {
-                    console.log(2);
-                }
-
                 carts.push({
                     title: item.title,
                     size: item.size,
@@ -265,7 +316,7 @@ app.factory('dataHolder', function () {
                 });
 
             } else {
-                obj.num += item.num;
+                obj.num = item.num;
             }
 
         },
@@ -280,6 +331,19 @@ app.factory('dataHolder', function () {
                 total += item.price * item.num;
             });
             return total;
+        },
+
+        send: function (){
+            $http({
+                method: 'POST',
+                url: 'https://api.mlab.com/api/1/databases/pizzashop/collections/orders?apiKey=9BGZZA0zukVJrmfAYnnLeG7V2DiUQNY_',
+                data: this.getCarts()
+            }).then(function successCallback(response) {}, function errorCallback(response) {});
+
+            /*$http.post('https://api.mlab.com/api/1/databases/pizzashop/collections/orders?apiKey=9BGZZA0zukVJrmfAYnnLeG7V2DiUQNY_', this.getCarts()).success(function (data, status, headers, config) {
+
+            }).error(function () {
+            });*/
         }
     }
 });
@@ -288,7 +352,9 @@ app.directive('myContacts', function () {
     return {
         restrict: 'AEC',
         templateUrl: 'template/item_contacts.html',
-        link: function (scope) {
+        transclude: true,
+        link: function (scope, el, attrs) {
+            scope.title = attrs.title;
             scope.tel1 = '(000) 777 777 7777';
             scope.tel2 = '(000) 888 888 8888';
             scope.mail1 = 'info@sitename.com';
@@ -297,3 +363,5 @@ app.directive('myContacts', function () {
         }
     };
 });
+
+//9BGZZA0zukVJrmfAYnnLeG7V2DiUQNY_
