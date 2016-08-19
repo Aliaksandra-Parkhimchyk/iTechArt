@@ -63,7 +63,7 @@
                         <button class="remove" ng-click="removeItem(carts,item)">X</button>
                         {{item.title}} * {{item.num}}= {{item.price * item.num | currency}}
                     </div>
-                    <p class="total">Total: {{total() | currency}}</p>
+                    <p class="total">Total: {{getTotal() | currency}}</p>
                     <!--<button>Checkout</button>-->
                     <a class="btn" href="/checkout" role="button">Checkout</a>
                 </div>

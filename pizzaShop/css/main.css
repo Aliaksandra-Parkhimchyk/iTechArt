@@ -195,6 +195,15 @@ a.logo {
 
 .catalog {
   padding-top: 50px; }
+  .catalog h1 {
+    color: #e84c3d;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.9px;
+    font-family: 'Fjalla One', sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 30px; }
   .catalog .pizza h3 {
     color: #e84c3d;
     font-size: 20px;
@@ -379,6 +388,22 @@ a.logo {
   letter-spacing: 0;
   font-family: 'Lato', sans-serif;
   padding-bottom: 20px; }
+.item_content a.again,
+.item_description a.again,
+.item_query a.again,
+.item_contacts a.again {
+  background: #e84c3d;
+  border: none;
+  border-radius: 20px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: -1px;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  width: 100px;
+  height: 37px; }
 
 article h4 {
   color: #202628;
@@ -465,6 +490,7 @@ article button {
 .item_query .input_query textarea {
   border: none;
   border-radius: 20px;
+  display: inline;
   color: #9faaad;
   font-size: 14px;
   font-weight: 400;
@@ -472,7 +498,7 @@ article button {
   letter-spacing: 0;
   font-family: 'Lato', sans-serif;
   font-style: italic;
-  width: 380px;
+  width: 220px;
   height: 40px;
   padding-left: 20px; }
 
@@ -510,7 +536,7 @@ article button {
   .item_query .input_query input[type="text"],
   .item_query .input_query input[type="email"],
   .item_query .input_query input[type="tel"] {
-    width: 100%;
+    /*width: 100%;*/
     height: 40px;
     margin-bottom: 20px; }
   .item_query .input_query textarea {

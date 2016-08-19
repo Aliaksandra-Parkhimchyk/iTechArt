@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngRoute']);
+var app = angular.module('app', ['ngRoute', 'ngAnimate', 'ui.bootstrap']);
 
 app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 
@@ -109,58 +109,9 @@ app.controller('HomeCtrl', function ($scope, $http, $location, $q, stateService)
         console.log('Erorr!');
     });
 
-    /*$http.get('https://api.mlab.com/api/1/databases/pizzashop/collections/products?apiKey=9BGZZA0zukVJrmfAYnnLeG7V2DiUQNY_').success(function (data, status, headers, config) {
-
-        $scope.products = data;
-
-        $scope.from = (function () {
-            var minPrice = 100;
-            for (var i = 0; i < $scope.products.length; i += 1) {
-                if ($scope.products[i].price < minPrice) {
-                    minPrice = $scope.products[i].price;
-                }
-            }
-            return minPrice;
-        })();
-
-        $scope.to = (function () {
-            var maxPrice = 0;
-            for (var i = 0; i < $scope.products.length; i += 1) {
-                if ($scope.products[i].price > maxPrice) {
-                    maxPrice = $scope.products[i].price;
-                }
-            }
-            return maxPrice;
-        })();
-    }).error(function () {
-    });*/
-
     /*setTimeout(function () {
      $scope.to = 10000;
      }, 5000);*/
-
-    //$scope.carts = [];
-
-    /*$scope.addItem = function (item) {
-
-     $scope.carts.push({
-     title: item.title,
-     size: item.size,
-     price: item.price
-     });
-     };*/
-
-    /*$scope.removeItem = function (carts, item) {
-     carts.splice(item, 1);
-     };*/
-
-    /*$scope.total = function () {
-     var total = 0;
-     angular.forEach($scope.carts, function (item) {
-     total += item.price;
-     });
-     return total;
-     };*/
 
     $scope.carts = stateService.getCarts();
 
@@ -172,8 +123,8 @@ app.controller('HomeCtrl', function ($scope, $http, $location, $q, stateService)
         stateService.removeItem($scope.carts, item);
     };
 
-    $scope.total = function () {
-        return stateService.total();
+    $scope.getTotal = function () {
+        return stateService.getTotal();
     };
 
     $scope.filterPrice = function (minPrice, maxPrice) {
@@ -207,8 +158,8 @@ app.controller('HomeCtrl', function ($scope, $http, $location, $q, stateService)
     $scope.sortField = undefined;
     $scope.reverse = false;
 
-    $scope.sort = function(fieldName) {
-        if($scope.sortField === fieldName) {
+    $scope.sort = function (fieldName) {
+        if ($scope.sortField === fieldName) {
             $scope.reverse = !$scope.reverse;
         } else {
             $scope.sortField = fieldName;
@@ -241,6 +192,8 @@ app.controller('CheckoutCtrl', function ($scope, stateService) {
     $scope.regexLetters = /^[A-z]{3,20}$/;
     $scope.regexNumber = /^[0-9]*$/;
 
+    $scope.isHide = false;
+
     /*$scope.templates = {name: 'item_contacts.html', url: 'template/item_contacts.html'};*/
 
     $scope.carts = stateService.getCarts();
@@ -253,12 +206,13 @@ app.controller('CheckoutCtrl', function ($scope, stateService) {
         stateService.removeItem($scope.carts, item);
     };
 
-    $scope.total = function () {
-        return stateService.total();
+    $scope.getTotal = function () {
+        return stateService.getTotal();
     };
 
     $scope.send = function () {
-        return stateService.send();
+        stateService.send($scope.name, $scope.email, $scope.phone, $scope.city, $scope.street, $scope.house, $scope.apartment);
+        $scope.isHide = true;
     };
 });
 
@@ -268,22 +222,18 @@ app.controller('OrdersCtrl', function ($scope, $http) {
 
     $http({
         method: 'GET',
-        url: 'https://api.mlab.com/api/1/databases/pizzashop/collections/orders?apiKey=9BGZZA0zukVJrmfAYnnLeG7V2DiUQNY_'
+        url: 'https://api.mlab.com/api/1/databases/pizzashop/collections/form?apiKey=9BGZZA0zukVJrmfAYnnLeG7V2DiUQNY_'
     }).then(function successCallback(response) {
-        $scope.orders = response.data;
+        $scope.form = response.data;
     }, function errorCallback(response) {
         console.log('Erorr!');
     });
-
-    /*$http.get('https://api.mlab.com/api/1/databases/pizzashop/collections/orders?apiKey=9BGZZA0zukVJrmfAYnnLeG7V2DiUQNY_').success(function (data, status, headers, config) {
-        $scope.orders = response.data;
-    }).error(function () {
-    });*/
 });
 
 app.factory('stateService', function ($http) {
 
     var carts = [];
+    var forms = [];
 
     function findById(source, id) {
         for (var i = 0; i < source.length; i++) {
@@ -318,14 +268,13 @@ app.factory('stateService', function ($http) {
             } else {
                 obj.num = item.num;
             }
-
         },
 
         removeItem: function (carts, item) {
             carts.splice(item, 1);
         },
 
-        total: function () {
+        getTotal: function () {
             var total = 0;
             angular.forEach(carts, function (item) {
                 total += item.price * item.num;
@@ -333,17 +282,26 @@ app.factory('stateService', function ($http) {
             return total;
         },
 
-        send: function (){
+        send: function (name, email, phone, city, street, house, apartment) {
+
             $http({
                 method: 'POST',
-                url: 'https://api.mlab.com/api/1/databases/pizzashop/collections/orders?apiKey=9BGZZA0zukVJrmfAYnnLeG7V2DiUQNY_',
-                data: this.getCarts()
-            }).then(function successCallback(response) {}, function errorCallback(response) {});
-
-            /*$http.post('https://api.mlab.com/api/1/databases/pizzashop/collections/orders?apiKey=9BGZZA0zukVJrmfAYnnLeG7V2DiUQNY_', this.getCarts()).success(function (data, status, headers, config) {
-
-            }).error(function () {
-            });*/
+                url: 'https://api.mlab.com/api/1/databases/pizzashop/collections/form?apiKey=9BGZZA0zukVJrmfAYnnLeG7V2DiUQNY_',
+                data: [{
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    city: city,
+                    street: street,
+                    house: house,
+                    apartment: apartment,
+                    date: new Date,
+                    orders: this.getCarts()
+                }]
+            }).then(function successCallback(response) {
+                carts = [];
+            }, function errorCallback(response) {
+            });
         }
     }
 });
