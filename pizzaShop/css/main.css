@@ -228,6 +228,22 @@ a.logo {
     height: 37px;
     margin-bottom: 50px; }
 
+.logout {
+  background: #e84c3d;
+  border: none;
+  border-radius: 20px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: -1px;
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  width: 70px;
+  height: 37px;
+  margin-bottom: 50px; }
+
 .item_slider .arrows {
   margin-bottom: 16px; }
   .item_slider .arrows .semicircle {
@@ -487,6 +503,7 @@ article button {
 .item_query .input_query input[type="text"],
 .item_query .input_query input[type="email"],
 .item_query .input_query input[type="tel"],
+.item_query .input_query input[type="password"],
 .item_query .input_query textarea {
   border: none;
   border-radius: 20px;
@@ -518,6 +535,20 @@ article button {
   height: 40px;
   position: relative;
   padding-right: 20px; }
+.orange_row .item_email .input_email a,
+.item_query .input_query a {
+  background: #e84c3d;
+  border: none;
+  border-radius: 20px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: -1px;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  width: 100px;
+  height: 37px; }
 
 .item_description figure {
   margin-top: 25px; }

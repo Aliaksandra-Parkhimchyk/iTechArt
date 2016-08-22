@@ -1,6 +1,6 @@
-var app = angular.module('app', ['ngRoute', 'ngAnimate', 'ui.bootstrap']);
+var app = angular.module('app', ['ui.router', 'ngAnimate', 'ui.bootstrap']);
 
-app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+/*app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 
     $locationProvider.html5Mode({
         enabled: true,
@@ -35,9 +35,64 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         .otherwise({
             redirectTo: '/'
         });
-}]);
+}]);*/
 
-app.controller('MainCtrl', function ($scope, $http, $location) {
+app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+
+    /*$locationProvider.html5Mode({
+        enabled: true,
+        requireBase: false
+    });*/
+
+    $urlRouterProvider.otherwise('/');
+
+    $stateProvider
+        .state('/', {
+            url: "/",
+            templateUrl: "template/home.html",
+            controller: 'HomeCtrl'
+        })
+        .state('/about', {
+            url: '/about',
+            templateUrl: 'template/about.html',
+            controller: 'AboutCtrl'
+        })
+        .state('/delivery', {
+            url: '/delivery',
+            templateUrl: 'template/delivery.html',
+            controller: 'DeliveryCtrl'
+        })
+        .state('/contact', {
+            url: '/contact',
+            templateUrl: 'template/contact.html',
+            controller: 'ContactCtrl'
+        })
+        .state('/checkout', {
+            url: '/checkout',
+            templateUrl: 'template/checkout.html',
+            controller: 'CheckoutCtrl'
+        })
+        .state('/orders', {
+            url: '/orders',
+            templateUrl: 'template/orders.html',
+            controller: 'OrdersCtrl'
+        })
+        .state('/login', {
+            url: '/login',
+            templateUrl: 'template/login.html',
+            controller: 'LoginCtrl'
+        })
+        .state('/logout', {
+            url: '/logout',
+            templateUrl: 'template/logout.html',
+            controller: 'LogoutCtrl'
+        });
+});
+
+app.controller('MainCtrl', function ($scope, $http, $location, loginService) {
+
+    $scope.isLogin = loginService.isLogin;
+
     $scope.getClass = function (path) {
         return ($location.path() === path) ? 'active' : '';
     }
@@ -216,9 +271,15 @@ app.controller('CheckoutCtrl', function ($scope, stateService) {
     };
 });
 
-app.controller('OrdersCtrl', function ($scope, $http) {
+app.controller('OrdersCtrl', function ($scope, $state, $http, loginService) {
 
     /*$scope.templates = {name: 'item_contacts.html', url: 'template/item_contacts.html'};*/
+
+    $scope.isLogin = loginService.isLogin;
+
+    if(!$scope.isLogin) {
+        $state.go('/login');
+    }
 
     $http({
         method: 'GET',
@@ -230,10 +291,64 @@ app.controller('OrdersCtrl', function ($scope, $http) {
     });
 });
 
+app.controller('LoginCtrl', function ($scope, $state, $http, loginService) {
+
+    $scope.regexName = /^[A-z0-9]{3,20}$/;
+    $scope.regexPassword = /^[A-z0-9]{3,20}$/;
+
+    $scope.isLogin = loginService.isLogin;
+
+    $scope.login = function () {
+        loginService.login($scope.name, $scope.password);
+    };
+
+    $scope.logout = function () {
+        $scope.isLogin = loginService.isLogin = false;
+    };
+});
+
+app.controller('LogoutCtrl', function ($scope, $state, loginService) {
+
+    $scope.isLogin = loginService.isLogin;
+
+    $scope.logout = function () {
+        loginService.logout();
+    };
+});
+
+app.factory('loginService', function ($http, $state) {
+
+    var users = [];
+    this.isLogin = false;
+
+    return {
+
+        login: function (name, password) {
+
+            var self = this;
+
+            $http({
+                method: 'GET',
+                url: 'https://api.mlab.com/api/1/databases/pizzashop/collections/users?apiKey=9BGZZA0zukVJrmfAYnnLeG7V2DiUQNY_'
+            }).then(function successCallback(response) {
+                this.users = response.data;
+                if (this.users[0].name === name && this.users[0].password === password) {
+                    $state.go('/orders');
+                    self.isLogin = true;
+                } else {
+                    alert('Invalid username or password!');
+                }
+            }, function errorCallback(response) {
+                console.log('Erorr!');
+            });
+        }
+    }
+});
+
 app.factory('stateService', function ($http) {
 
     var carts = [];
-    var forms = [];
+    /*var forms = [];*/
 
     function findById(source, id) {
         for (var i = 0; i < source.length; i++) {

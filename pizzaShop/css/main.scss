@@ -215,6 +215,19 @@ a.logo {
   }
 }
 
+.logout {
+  background: $color-orange;
+  border: none;
+  border-radius: 20px;
+  @include font($color-white, 14px, 400, 30px, -1px);
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  width: 70px;
+  height: 37px;
+  margin-bottom: 50px;
+}
+
 .item_slider {
 
   .arrows {
@@ -513,6 +526,7 @@ article {
 .item_query .input_query input[type="text"],
 .item_query .input_query input[type="email"],
 .item_query .input_query input[type="tel"],
+.item_query .input_query input[type="password"],
 .item_query .input_query textarea {
   border: none;
   border-radius: 20px;
@@ -539,6 +553,16 @@ article {
     height: 40px;
     position: relative;
     padding-right: 20px;
+  }
+  a {
+    background: $color-orange;
+    border: none;
+    border-radius: 20px;
+    @include font($color-white, 14px, 400, 30px, -1px);
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    width: 100px;
+    height: 37px;
   }
 }
 

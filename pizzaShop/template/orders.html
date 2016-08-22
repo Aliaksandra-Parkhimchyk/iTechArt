@@ -15,7 +15,7 @@
     </div>
 </section>-->
 
-<section class="wr-advantages" ng-controller="OrdersCtrl">
+<section class="wr-advantages" ng-controller="OrdersCtrl" ng-show="isLogin">
     <div class="container">
         <div class="row catalog">
             <div class="col-md-8">
@@ -31,6 +31,9 @@
                         {{item.email}} {{item.phone}} {{item.city}} {{item.street}} {{item.house}} {{item.apartment}}
                     </div>
                 </uib-accordion>
+            </div>
+            <div class="col-md-4">
+                <my-contacts data-title="ALIQUAM TINCIDUNT"></my-contacts>
             </div>
         </div>
     </div>
