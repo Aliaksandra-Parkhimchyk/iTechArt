@@ -1,0 +1,11 @@
+<nav class="footer_nav">
+    <ul>
+        <li><a ng-class="getClass('/')" ui-sref="/">Home</a></li>
+        <li><a ng-class="getClass('/about')" ui-sref="/about">About</a></li>
+        <li><a ng-class="getClass('/delivery')" ui-sref="/delivery">Delivery</a></li>
+        <li><a ng-class="getClass('/contact')" ui-sref="/contact">Contact us</a></li>
+        <li ng-if="isLogin"><a ng-class="getClass('/orders')" ui-sref="/orders">Orders</a></li>
+        <li ng-if="!isLogin"><a ng-class="getClass('/login')" ui-sref="/login">Login</a></li>
+        <li ng-if="isLogin"><a ng-class="getClass('/logout')" ui-sref="/logout" ng-click="logout()">Logout</a></li>
+    </ul>
+</nav>

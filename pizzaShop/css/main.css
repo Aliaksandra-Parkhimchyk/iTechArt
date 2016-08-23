@@ -535,20 +535,6 @@ article button {
   height: 40px;
   position: relative;
   padding-right: 20px; }
-.orange_row .item_email .input_email a,
-.item_query .input_query a {
-  background: #e84c3d;
-  border: none;
-  border-radius: 20px;
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 30px;
-  letter-spacing: -1px;
-  font-family: 'Oswald', sans-serif;
-  text-transform: uppercase;
-  width: 100px;
-  height: 37px; }
 
 .item_description figure {
   margin-top: 25px; }
@@ -641,6 +627,7 @@ article button {
         display: none;
         margin-right: 0; }
       .footer_nav ul li a {
+        cursor: pointer;
         color: #e7e7e7;
         font-size: 14px;
         font-weight: 400;

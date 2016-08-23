@@ -62,17 +62,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <nav class="footer_nav">
+                    <!--<nav class="footer_nav">
                         <ul>
                             <li><a ng-class="getClass('/')" ui-sref="/">Home</a></li>
                             <li><a ng-class="getClass('/about')" ui-sref="/about">About</a></li>
                             <li><a ng-class="getClass('/delivery')" ui-sref="/delivery">Delivery</a></li>
                             <li><a ng-class="getClass('/contact')" ui-sref="/contact">Contact us</a></li>
-                            <li><a ng-class="getClass('/orders')" ui-sref="/orders">Orders</a></li>
-                            <li><a ng-class="getClass('/login')" ui-sref="/login">Login</a></li>
-                            <li><a ng-class="getClass('/logout')" ui-sref="/logout">Logout</a></li>
+                            <li ng-show="isLogin"><a ng-class="getClass('/orders')" ui-sref="/orders">Orders</a></li>
+                            <li ng-show="!isLogin"><a ng-class="getClass('/login')" ui-sref="/login">Login</a></li>
+                            <li ng-show="isLogin"><a ng-class="getClass('/logout')" ui-sref="/logout">Logout</a></li>
                         </ul>
-                    </nav>
+                    </nav>-->
+                    <my-nav></my-nav>
                     <small class="copyright"><span>Designed by: </span><a href="#" class="design">www.alltemplateneeds.com
                         / </a>Images from: <a href="#" class="images">www.wallpaperswide.com / </a>Copyright(c) website
                         name.
@@ -106,6 +107,22 @@
 <script type="text/javascript" src=bower_components/angular-messages/angular-messages.min.js></script>
 <script type="text/javascript" src=bower_components/angular-ui-router/release/angular-ui-router.min.js></script>
 <script type="text/javascript" src=js/app.js></script>
+
+<script type="text/javascript" src=js/config/config.js></script>
+
+<script type="text/javascript" src=js/controllers/mainCtrl.js></script>
+<script type="text/javascript" src=js/controllers/homeCtrl.js></script>
+<script type="text/javascript" src=js/controllers/contactCtrl.js></script>
+<script type="text/javascript" src=js/controllers/checkoutCtrl.js></script>
+<script type="text/javascript" src=js/controllers/ordersCtrl.js></script>
+<script type="text/javascript" src=js/controllers/loginCtrl.js></script>
+
+<script type="text/javascript" src=js/factories/dataService.js></script>
+<script type="text/javascript" src=js/factories/stateService.js></script>
+<script type="text/javascript" src=js/factories/loginService.js></script>
+
+<script type="text/javascript" src=js/directives/myContacts.js></script>
+<script type="text/javascript" src=js/directives/myNav.js></script>
 
 </body>
 </html>

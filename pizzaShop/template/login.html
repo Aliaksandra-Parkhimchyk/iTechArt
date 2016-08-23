@@ -1,4 +1,4 @@
-<section class="wr-content" ng-controller="LoginCtrl" ng-show="!isLogin">
+<section class="wr-content" ng-show="!isLogin">
     <div class="container">
         <div class="row">
             <div class="col-md-8">
@@ -10,7 +10,7 @@
                                ng-pattern="regexName" required>
                         <input type="password" class="form-control" name="password" placeholder="password ..." ng-model="password"
                                ng-pattern="regexPassword" required>
-                        <a class="btn" ng-click='login()' role="button" ng-disabled="form.$invalid">Log in</a>
+                        <button class="btn" ng-click='login()' ng-disabled="form.$invalid">Log in</button>
                     </form>
                 </div>
             </div>
