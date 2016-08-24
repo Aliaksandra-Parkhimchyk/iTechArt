@@ -43,13 +43,16 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
+
         .state('/', {
             url: '/',
             resolve: {
-                //products: productsService.getProducts(),
-                blabla: function() {
-                    return 1;
+                products: function (dataService) {
+                    return dataService.getProducts();
                 }
+                /*blabla: function() {
+                    return 1;
+                }*/
             },
             templateUrl: 'template/home.html',
             controller: 'HomeCtrl'
@@ -88,5 +91,9 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
             url: '/logout',
             templateUrl: 'template/logout.html',
             controller: 'LogoutCtrl'
+        })
+        .state('/error', {
+            url: '/error',
+            templateUrl: 'template/error.html'
         });
 });

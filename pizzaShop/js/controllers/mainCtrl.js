@@ -2,6 +2,8 @@ app.controller('MainCtrl', function ($rootScope, $scope, $state, $http, $locatio
 
     $rootScope.isLogin = loginService.isLogin;
 
+    $scope.name = sessionStorage.getItem('currentUser');
+
     $scope.getClass = function (path) {
         return ($location.path() === path) ? 'active' : '';
     };
@@ -18,5 +20,16 @@ app.controller('MainCtrl', function ($rootScope, $scope, $state, $http, $locatio
         if(!currentUser && ['/orders'].indexOf(toState.url) >= 0) {
             $state.go('/login');
         }
+
+        /*if(currentUser) {
+            $rootScope.isLogin = true;
+        }*/
+
     });
+
+    /*$rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
+
+        $state.go('/error');
+
+    });*/
 });

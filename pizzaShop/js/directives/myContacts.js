@@ -3,7 +3,7 @@ app.directive('myContacts', function () {
         restrict: 'AEC',
         templateUrl: 'template/item_contacts.html',
         transclude: true,
-        link: function (scope, el, attrs) {
+        link: function (scope, element, attrs) {
             scope.title = attrs.title;
             scope.tel1 = '(000) 777 777 7777';
             scope.tel2 = '(000) 888 888 8888';

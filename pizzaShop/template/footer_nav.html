@@ -6,6 +6,6 @@
         <li><a ng-class="getClass('/contact')" ui-sref="/contact">Contact us</a></li>
         <li ng-if="isLogin"><a ng-class="getClass('/orders')" ui-sref="/orders">Orders</a></li>
         <li ng-if="!isLogin"><a ng-class="getClass('/login')" ui-sref="/login">Login</a></li>
-        <li ng-if="isLogin"><a ng-class="getClass('/logout')" ui-sref="/logout" ng-click="logout()">Logout</a></li>
+        <li ng-if="isLogin"><a ng-class="getClass('/logout')" ui-sref="/logout" ng-click="logout()">Logout {{'(' + name + ')'}}</a></li>
     </ul>
 </nav>
