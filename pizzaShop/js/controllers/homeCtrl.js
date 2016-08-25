@@ -49,40 +49,47 @@ app.controller('HomeCtrl', function ($rootScope, $scope, $state, $http, $locatio
         return stateService.getTotal();
     };
 
-    $scope.filterPrice = function (minPrice, maxPrice) {
+    var deferred = Q.defer();
 
-        /*if(minPrice < 0 || maxPrice < 0) {
-            alert('Invalid price!!!');
-        }*/
+    $scope.from = (function () {
+        var minPrice = 100;
+        for (var i = 0; i < $scope.products.length; i += 1) {
+            if ($scope.products[i].price < minPrice) {
+                minPrice = $scope.products[i].price;
+                deferred.resolve();
+            }
+        }
+        return minPrice;
+    })();
 
-        $scope.from = (function () {
-            var minPrice = 100;
-            for (var i = 0; i < $scope.products.length; i += 1) {
-                if ($scope.products[i].price < minPrice) {
-                    minPrice = $scope.products[i].price;
+    $scope.to = (function () {
+        var maxPrice = 0;
+        for (var i = 0; i < $scope.products.length; i += 1) {
+            if ($scope.products[i].price > maxPrice) {
+                maxPrice = $scope.products[i].price;
+                deferred.resolve();
+            }
+        }
+        return maxPrice;
+    })();
+
+    deferred.promise.then(function (res) {
+
+        $scope.filterPrice = function (minPrice, maxPrice) {
+
+            /*if(minPrice < 0 || maxPrice < 0) {
+             alert('Invalid price!!!');
+             }*/
+
+            return function (item) {
+                var res = true;
+                if (!(item.price >= minPrice && item.price <= maxPrice)) {
+                    res = false;
                 }
-            }
-            return minPrice;
-        })();
-
-        $scope.to = (function () {
-            var maxPrice = 0;
-            for (var i = 0; i < $scope.products.length; i += 1) {
-                if ($scope.products[i].price > maxPrice) {
-                    maxPrice = $scope.products[i].price;
-                }
-            }
-            return maxPrice;
-        })();
-
-        return function (item) {
-            var res = true;
-            if (!(item.price >= minPrice && item.price <= maxPrice)) {
-                res = false;
-            }
-            return res;
+                return res;
+            };
         };
-    };
+    });
 
     $scope.filterIngridients = function (obj) {
 
