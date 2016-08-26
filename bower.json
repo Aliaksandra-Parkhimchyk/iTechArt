@@ -17,6 +17,7 @@
   "dependencies": {
     "jquery": "^3.1.0",
     "q": "^2.0.2",
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^3.3.7",
+    "requirejs": "^2.2.0"
   }
 }

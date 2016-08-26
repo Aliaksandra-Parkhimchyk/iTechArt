@@ -1,8 +1,15 @@
+/*
 'use strict';
+
+var co = require('co');
+
+/!*require(['co'], function (co) {
+
+});*!/
 
 class Yahoo {
 
-    constructor(type, weather, finance) {
+    constructor (type, weather, finance) {
         this.type = type;
         this.weather = weather;
         this.finance = finance;
@@ -12,27 +19,32 @@ class Yahoo {
 
         if (this.weather && this.finance) {
 
-            let deferred = Q.defer();
-            
-            $.ajax({
-                url: 'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22minsk%2C%20ak%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys',
-                success: json_weather => {
+            /!*let deferred = Q.defer();*!/
 
-                    $('<h2>').text(json_weather.query.results.channel.title).appendTo(`.${this.type}`);
-                    $('<h3>').text('Date: ').appendTo(`.${this.type}`);
-                    $(`.${this.type}`).append(json_weather.query.results.channel.item.condition.date);
-                    $('<h3>').text('Temperature: ').appendTo(`.${this.type}`);
-                    $(`.${this.type}`).append(json_weather.query.results.channel.item.condition.temp);
-                    deferred.resolve();
+            co(function*() {
 
-                },
+                let promise = yield new Promise((resolve, reject) => {
+                    $.ajax({
+                        url: 'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22minsk%2C%20ak%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys',
+                        success: json_weather => {
 
-                error: () => {
-                    deferred.reject(new myError('Incorrect url!'));
-                }
-            });
+                            $('<h2>').text(json_weather.query.results.channel.title).appendTo(`.${this.type}`);
+                            $('<h3>').text('Date: ').appendTo(`.${this.type}`);
+                            $(`.${this.type}`).append(json_weather.query.results.channel.item.condition.date);
+                            $('<h3>').text('Temperature: ').appendTo(`.${this.type}`);
+                            $(`.${this.type}`).append(json_weather.query.results.channel.item.condition.temp);
+                            /!*deferred.*!/resolve();
+                        },
 
-            deferred.promise.then(res => {
+                        error: () => {
+                            /!*deferred.*!/reject(new myError('Incorrect url!'));
+                        }
+                    });
+                });
+
+                //return promise;
+
+            }).then(res => {
 
                 $.ajax({
                     url: 'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quote%20where%20symbol%20in%20(%22USD%22%2C%22BYN%22)&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=',
@@ -95,3 +107,23 @@ $(document).ready(() => {
         total.blabla();
     });
 });
+*/
+
+function* gen() {
+    var a = 0;
+
+    a = yield time();
+
+    yield 2;
+    return 3;
+}
+
+function time(gen) {
+    setTimeout(function () {
+        g1.next('blabla');
+    }, 1000);
+}
+
+var g1 = gen();
+
+
