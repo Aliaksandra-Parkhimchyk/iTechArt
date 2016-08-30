@@ -3,8 +3,7 @@ app.controller('OrdersCtrl', function ($rootScope, $scope, $state, $http, regist
     /*$scope.templates = {name: 'item_contacts.html', url: 'template/item_contacts.html'};*/
 
     /*$scope.isLogin = $rootScope.isLogin;
-
-     if(!$scope.isLogin) {
+       if(!$scope.isLogin) {
      $state.go('/login');
      }*/
 
@@ -27,3 +26,5 @@ app.controller('OrdersCtrl', function ($rootScope, $scope, $state, $http, regist
         console.log('Erorr!');
     });
 });
+
+//# sourceMappingURL=ordersCtrl-compiled.js.map

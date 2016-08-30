@@ -17,8 +17,7 @@ app.factory('loginService', function ($rootScope, $http, $state) {
             }).then(function successCallback(response) {
                 registered_users = response.data;
                 for (var i = 0; i < registered_users.length; i += 1) {
-                    if (registered_users[i].hasOwnProperty('name') && registered_users[i].name === name &&
-                        registered_users[i].hasOwnProperty('password') && registered_users[i].password === password) {
+                    if (registered_users[i].hasOwnProperty('name') && registered_users[i].name === name && registered_users[i].hasOwnProperty('password') && registered_users[i].password === password) {
                         $rootScope.isRegistration = true;
                         $rootScope.index = i;
                     }
@@ -54,8 +53,7 @@ app.factory('loginService', function ($rootScope, $http, $state) {
                 }]
             }).then(function successCallback(response) {
                 $rootScope.isLogin = true;
-            }, function errorCallback(response) {
-            });
+            }, function errorCallback(response) {});
         },
 
         getUsers: function () {
@@ -65,5 +63,7 @@ app.factory('loginService', function ($rootScope, $http, $state) {
                 url: 'https://api.mlab.com/api/1/databases/pizzashop/collections/registered_users?apiKey=9BGZZA0zukVJrmfAYnnLeG7V2DiUQNY_'
             });
         }
-    }
+    };
 });
+
+//# sourceMappingURL=loginService-compiled.js.map

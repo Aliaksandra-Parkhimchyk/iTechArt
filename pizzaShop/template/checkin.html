@@ -1,0 +1,43 @@
+<section class="wr-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="item_query">
+                    <h1 ng-hide="isHide">Nunc dignissim risu</h1>
+                    <h1 ng-show="isHide">Thank you for your check in!!!</h1>
+                    <form ng-hide="isHide" class="input_query css-form" name="form" novalidate>
+                        <input type="text" class="form-control" name="name" placeholder="name ..." ng-model="name"
+                               ng-pattern="regexName" required>
+                        <!--<span ng-show="form.name.$error.required">Имя пользователя обязательно.</span>-->
+                        <input type="email" class="form-control" name="email" placeholder="email ..." ng-model="email"
+                               ng-pattern="regexEmail" required>
+                        <!--<span ng-show="form.email.$error.required">Email обязателен.</span>-->
+                        <input type="tel" class="form-control" name="phone" placeholder="phone ..." ng-model="phone"
+                               ng-pattern="regexPhone" required>
+                        <input type="text" class="form-control" name="city" placeholder="city ..." ng-model="city"
+                               ng-pattern="regexLetters" required>
+                        <input type="text" class="form-control" name="street" placeholder="street ..." ng-model="street"
+                               ng-pattern="regexLetters" required>
+                        <input type="text" class="form-control" name="house" placeholder="house ..." ng-model="house"
+                               ng-pattern="regexNumber" required>
+                        <input type="text" class="form-control" name="apartment" placeholder="apartment ..." ng-model="apartment"
+                               ng-pattern="regexNumber" required>
+                        <input type="text" class="form-control" placeholder="access ..." ng-model="access">
+                        <input type="text" class="form-control" placeholder="floor ..." ng-model="floor">
+                        <input type="password" class="form-control" name="password" placeholder="password ..." ng-model="password"
+                               ng-pattern="regexPassword" required>
+                        <button type="submit" class="btn" ng-disabled="form.$invalid" ng-click="signup()">
+                            sign up
+                            <span class="glyphicon glyphicon-arrow-right"></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <!--<div ng-include="templates.url"></div>-->
+                <div my-contacts data-title="ALIQUAM TINCIDUNT"></div>
+            </div>
+        </div>
+    </div>
+</section>

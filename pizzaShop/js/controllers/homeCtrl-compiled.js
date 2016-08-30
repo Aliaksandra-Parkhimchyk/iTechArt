@@ -15,7 +15,6 @@ app.controller('HomeCtrl', function ($rootScope, $scope, $state, $http, stateSer
      });
      p.resolve();*/
 
-
     /*$scope.ingridientsChosen = {};
      setTimeout(function () {
      $scope.$apply(function () {
@@ -37,9 +36,9 @@ app.controller('HomeCtrl', function ($rootScope, $scope, $state, $http, stateSer
 
     $scope.registered_users = registered_users.data;
 
-    $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams, options) {
+    $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams, options) {
 
-        if($rootScope.isRegistration) {
+        if ($rootScope.isRegistration) {
             $rootScope.name = $scope.registered_users[$rootScope.index].name;
             $rootScope.email = $scope.registered_users[$rootScope.index].email;
             $rootScope.phone = $scope.registered_users[$rootScope.index].phone;
@@ -78,8 +77,7 @@ app.controller('HomeCtrl', function ($rootScope, $scope, $state, $http, stateSer
         }
         return minPrice;
     })();
-
-    $scope.to = (function () {
+      $scope.to = (function () {
         var maxPrice = 0;
         for (var i = 0; i < $scope.products.length; i += 1) {
             if ($scope.products[i].price > maxPrice) {
@@ -89,16 +87,12 @@ app.controller('HomeCtrl', function ($rootScope, $scope, $state, $http, stateSer
         }
         return maxPrice;
     })();
-
-    deferred.promise.then(function (res) {
-
-        $scope.filterPrice = function (minPrice, maxPrice) {
-
-            /!*if(minPrice < 0 || maxPrice < 0) {
+      deferred.promise.then(function (res) {
+          $scope.filterPrice = function (minPrice, maxPrice) {
+              /!*if(minPrice < 0 || maxPrice < 0) {
              alert('Invalid price!!!');
              }*!/
-
-            return function (item) {
+              return function (item) {
                 var res = true;
                 if (!(item.price >= minPrice && item.price <= maxPrice)) {
                     res = false;
@@ -133,3 +127,5 @@ app.controller('HomeCtrl', function ($rootScope, $scope, $state, $http, stateSer
         }
     };
 });
+
+//# sourceMappingURL=homeCtrl-compiled.js.map

@@ -47,9 +47,15 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         .state('/', {
             url: '/',
             resolve: {
+                
                 products: function (dataService) {
                     return dataService.getProducts();
+                },
+
+                registered_users: function (loginService) {
+                    return loginService.getUsers();
                 }
+
                 /*blabla: function() {
                     return 1;
                 }*/
@@ -72,6 +78,11 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
             templateUrl: 'template/contact.html',
             controller: 'ContactCtrl'
         })
+        .state('/checkin', {
+            url: '/checkin',
+            templateUrl: 'template/checkin.html',
+            controller: 'CheckinCtrl'
+        })
         .state('/checkout', {
             url: '/checkout',
             templateUrl: 'template/checkout.html',
@@ -79,6 +90,12 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         })
         .state('/orders', {
             url: '/orders',
+            resolve: {
+
+                registered_users: function (loginService) {
+                    return loginService.getUsers();
+                }
+            },
             templateUrl: 'template/orders.html',
             controller: 'OrdersCtrl'
         })

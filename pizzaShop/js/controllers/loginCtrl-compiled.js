@@ -10,3 +10,5 @@ app.controller('LoginCtrl', function ($rootScope, $scope, $state, $http, loginSe
         loginService.login($scope.name, $scope.password);
     };
 });
+
+//# sourceMappingURL=loginCtrl-compiled.js.map

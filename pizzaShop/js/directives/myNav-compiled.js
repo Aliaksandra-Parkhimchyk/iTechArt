@@ -7,8 +7,10 @@ app.directive('myNav', function () {
             logout: '&'
         },
         templateUrl: 'template/footer_nav.html',
-        link: function(scope){
+        link: function (scope) {
             //scope.logout();
         }
     };
 });
+
+//# sourceMappingURL=myNav-compiled.js.map

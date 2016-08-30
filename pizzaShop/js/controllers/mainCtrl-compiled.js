@@ -5,7 +5,7 @@ app.controller('MainCtrl', function ($rootScope, $scope, $state, $http, $locatio
     $scope.name = localStorage.getItem('currentUser');
 
     $scope.getClass = function (path) {
-        return ($location.path() === path) ? 'active' : '';
+        return $location.path() === path ? 'active' : '';
     };
 
     $scope.logout = function () {
@@ -14,24 +14,24 @@ app.controller('MainCtrl', function ($rootScope, $scope, $state, $http, $locatio
         $state.go('/login');
     };
 
-    $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams, options) {
+    $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams, options) {
 
         var currentUser = localStorage.getItem('currentUser');
 
-        if(!currentUser && ['/orders'].indexOf(toState.url) >= 0) {
+        if (!currentUser && ['/orders'].indexOf(toState.url) >= 0) {
             $state.go('/login');
         } /*else if(['/login'].indexOf(toState.url) >= 0) {
             $state.go('/');
-        }*/
+          }*/
 
-        if(currentUser) {
+        if (currentUser) {
             $rootScope.isLogin = true;
         }
     });
 
     /*$rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
-
-        $state.go('/error');
-
-    });*/
+          $state.go('/error');
+      });*/
 });
+
+//# sourceMappingURL=mainCtrl-compiled.js.map

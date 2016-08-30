@@ -15,20 +15,21 @@
     </div>
 </section>-->
 
-<section class="wr-advantages">
+<section class="wr-advantages" ng-show="isLogin">
     <div class="container">
         <div class="row catalog">
             <div class="col-md-8">
                 <h1>Your orders</h1>
-                <uib-accordion>
-                    <div ng-repeat="item in form" uib-accordion-group class="panel-default">
+                <uib-accordion ng-if="isOrder">
+                    <div uib-accordion-group class="panel-default">
                         <uib-accordion-heading>
-                            {{item.name}} {{item.date}}
+                            {{registered_form.name}} {{registered_form.date}}
                         </uib-accordion-heading>
-                        <div ng-repeat="order in item.orders">
+                        <div ng-repeat="order in registered_form.orders">
                             {{order.title}} * {{order.num}}= {{order.price * order.num | currency}}
                         </div>
-                        {{item.email}} {{item.phone}} {{item.city}} {{item.street}} {{item.house}} {{item.apartment}}
+                        {{registered_form.email}} {{registered_form.phone}} {{registered_form.city}}
+                        {{registered_form.street}} {{registered_form.house}} {{registered_form.apartment}}
                     </div>
                 </uib-accordion>
             </div>
