@@ -66,7 +66,7 @@ app.controller('HomeCtrl', function ($rootScope, $scope, $state, $http, stateSer
         return stateService.getTotal();
     };
 
-    var deferred = Q.defer();
+    //var deferred = Q.defer();
 
     /*$scope.from = (function () {
         var minPrice = 100;
