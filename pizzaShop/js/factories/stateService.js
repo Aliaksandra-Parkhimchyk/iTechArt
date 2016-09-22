@@ -3,13 +3,13 @@ app.factory('stateService', function ($http) {
     var carts = [];
     /*var forms = [];*/
 
-    function findById(source, id) {
+    /*function findById(source, id) {
         for (var i = 0; i < source.length; i++) {
             if (source[i].id === id) {
                 return source[i];
             }
         }
-    }
+    }*/
 
     return {
 
@@ -21,7 +21,11 @@ app.factory('stateService', function ($http) {
 
             /*var nums = item.num || 1;*/
 
-            var obj = findById(carts, item.id);
+            /*var obj = findById(carts, item.id);
+            console.log(obj);*/
+
+            var obj = _.find(carts, function(o) { return o.id === item.id; });
+            console.log(obj);
 
             if (carts.length === 0 || !obj) {
 
