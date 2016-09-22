@@ -14,7 +14,16 @@ app.controller('MainCtrl', function ($rootScope, $scope, $state, $http, $locatio
         $state.go('/login');
     };
 
+    $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+        if (fromState.name == '/' && toState.name == '/about') {
+            alert('Can\'t go from home to about!');
+            event.preventDefault();
+        }
+    });
+
     $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams, options) {
+
+        alert('State changed!');
 
         var currentUser = localStorage.getItem('currentUser');
 
