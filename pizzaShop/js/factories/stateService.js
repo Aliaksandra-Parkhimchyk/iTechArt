@@ -24,7 +24,9 @@ app.factory('stateService', function ($http) {
             /*var obj = findById(carts, item.id);
             console.log(obj);*/
 
-            var obj = _.find(carts, function(o) { return o.id === item.id; });
+            var obj = _.find(carts, function (o) {
+                return o.id === item.id;
+            });
             console.log(obj);
 
             if (carts.length === 0 || !obj) {
